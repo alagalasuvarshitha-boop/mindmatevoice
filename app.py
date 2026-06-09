@@ -35,11 +35,7 @@ def logout():
     return redirect('/login')
 
 # Protect main page (optional)
-@app.route('/')
-def index():
-    if 'user' not in session:
-        return redirect('/login')
-    return send_from_directory('.', 'index.html')
+
 # Try to import gTTS, show error if not installed
 try:
     from gtts import gTTS # type: ignore
