@@ -1,0 +1,864 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MindMate - Login / Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MindMate - AI Based Mental Health Companion – Login & Register">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ================================ */
+    /* 🎨 CSS CUSTOM PROPERTIES        */
+    /* ================================ */
+    :root {
+      --clr-bg: #f0f4f8;
+      --clr-surface: #ffffff;
+      --clr-surface-alt: #f8fafc;
+      --clr-border: #e2e8f0;
+      --clr-text: #1e293b;
+      --clr-text-muted: #64748b;
+      --clr-text-light: #94a3b8;
+
+      --clr-primary: #0d9488;
+      --clr-primary-hover: #0f766e;
+      --clr-secondary: #6366f1;
+      --clr-secondary-hover: #4f46e5;
+      --clr-coral: #e11d48;
+      --clr-coral-hover: #be123c;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, .08);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, .12);
+      --shadow-card: 0 2px 8px rgba(0, 0, 0, .06);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: 0.2s ease;
+    }
+
+    /* ================================ */
+    /* 🔄 RESET & BASE                 */
+    /* ================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 16px;
+    }
+
+    /* ================================ */
+    /* 🏷 TYPOGRAPHY                    */
+    /* ================================ */
+    .logo {
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--clr-text);
+      margin-bottom: 2px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      color: var(--clr-text-muted);
+      font-weight: 600;
+    }
+
+    h3 {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--clr-text);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* ================================ */
+    /* 🏫 INSTITUTION HEADER           */
+    /* ================================ */
+    .header-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .header-logo-img {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius-sm);
+      object-fit: contain;
+      background: var(--clr-surface-alt);
+      border: 1px solid var(--clr-border);
+      flex-shrink: 0;
+    }
+
+    .developed-by-head {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--clr-text);
+      line-height: 1.4;
+      margin: 0;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ================================ */
+    /* 📐 MAIN CONTENT ROW             */
+    /* ================================ */
+    /* projectDet + container sit side by side on desktop */
+    .projectDet {
+      flex: 1;
+      min-width: 0;
+      max-width: 460px;
+      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--clr-text-muted);
+      line-height: 1.65;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      text-align: left;
+      position: relative;
+      align-self: flex-start;
+    }
+
+    .name-stress-cont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      position: relative;
+      top: auto;
+    }
+
+    .name-stress-cont video {
+      border-radius: var(--radius-md);
+      border: 2px solid var(--clr-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ================================ */
+    /* 🗂 LOGIN / SIGNUP CONTAINER     */
+    /* ================================ */
+    .container {
+      width: 400px;
+      flex-shrink: 0;
+      background: var(--clr-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+      left: auto;
+      top: auto;
+    }
+
+    .forms {
+      display: flex;
+      width: 200%;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .form {
+      width: 50%;
+      padding: 24px 20px;
+      box-sizing: border-box;
+    }
+
+    .form h2 {
+      text-align: center;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--clr-text-muted);
+    }
+
+    /* ================================ */
+    /* ✏️ INPUTS                        */
+    /* ================================ */
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px 12px;
+      margin: 8px auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--clr-border);
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      color: var(--clr-text);
+      background: var(--clr-surface-alt);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    input:focus {
+      border-color: var(--clr-primary);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, .15);
+    }
+
+    input::placeholder {
+      color: var(--clr-text-light);
+    }
+
+    /* ================================ */
+    /* 🔘 BUTTONS                      */
+    /* ================================ */
+    button {
+      width: 100%;
+      margin: 8px auto;
+      display: block;
+      padding: 10px 14px;
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      transition: background var(--transition), transform 0.1s ease, box-shadow var(--transition);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    /* Scan Face (Primary) */
+    .projectDet>div>button {
+      background: var(--clr-primary);
+    }
+
+    .projectDet>div>button:hover {
+      background: var(--clr-primary-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Sign Up (Teal) */
+    .form#signup-form>button:not(.toggle-btn) {
+      background: var(--clr-primary);
+    }
+
+    .form#signup-form>button:not(.toggle-btn):hover {
+      background: var(--clr-primary-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Capture Face (Rose) */
+    .form#signup-form>button[onclick*="captureSignupFace"] {
+      background: var(--clr-coral);
+    }
+
+    .form#signup-form>button[onclick*="captureSignupFace"]:hover {
+      background: var(--clr-coral-hover);
+    }
+
+    /* Login (Indigo) */
+    .form#login-form>button:not(.toggle-btn) {
+      background: var(--clr-secondary);
+    }
+
+    .form#login-form>button:not(.toggle-btn):hover {
+      background: var(--clr-secondary-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Toggle Link */
+    .toggle-btn {
+      background: transparent !important;
+      color: var(--clr-primary) !important;
+      border: none;
+      text-decoration: none;
+      font-size: 12px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      margin-top: 2px;
+      padding: 4px;
+      box-shadow: none !important;
+    }
+
+    .toggle-btn:hover {
+      text-decoration: underline;
+      background: transparent !important;
+    }
+
+    /* ================================ */
+    /* 📸 CAMERA                       */
+    /* ================================ */
+    .form video {
+      border-radius: var(--radius-md);
+      border: 2px solid var(--clr-border);
+      box-shadow: var(--shadow-sm);
+      margin: 8px auto;
+      display: block;
+    }
+
+    #signup-face-status {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--clr-primary);
+      font-size: 12px;
+    }
+
+    /* ================================ */
+    /* 🏷 FOOTER / CREDITS             */
+    /* ================================ */
+    .developed-by {
+      text-align: center;
+      font-size: 11px;
+      color: var(--clr-text-light);
+      margin-top: 10px;
+    }
+
+    .designed-by {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--clr-text-muted);
+      text-align: center;
+      margin-top: 14px;
+      position: relative;
+      top: auto;
+    }
+
+    /* ========================================= */
+    /* 📱 RESPONSIVE — Desktop default           */
+    /* ========================================= */
+    /* On desktop (>1024px): projectDet and container sit side by side.
+       They are direct children of body which is flex-direction:column,
+       so we use a wrapper-less approach: make body a column, but
+       projectDet and container are inline via their own widths.
+       Actually — since both are direct body children, we need the body
+       row for side-by-side. But the header and footer also need to be
+       on their own rows. Solution: use flex-wrap on body. */
+
+    /* Override body to be a wrapped row layout on desktop */
+    @media (min-width: 1025px) {
+      body {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0;
+        padding: 24px 32px;
+      }
+
+      /* Header row spans full width */
+      .header-row {
+        width: 100%;
+        flex-basis: 100%;
+        margin-bottom: 14px;
+      }
+
+      /* Side by side content */
+      .projectDet {
+        margin-right: 20px;
+      }
+
+      .container {
+        width: 400px;
+      }
+
+      /* Footer spans full width */
+      .designed-by {
+        width: 100%;
+        flex-basis: 100%;
+        margin-top: 14px;
+        font-size: 18px;
+      }
+    }
+
+    /* ---- Tablets (≤1024px) ---- */
+    @media (max-width: 1024px) {
+      body {
+        flex-direction: column;
+        align-items: center;
+        padding: 16px 14px;
+      }
+
+      .header-row {
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .header-logo-img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .developed-by-head {
+        font-size: 15px;
+      }
+
+      .projectDet {
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+
+    /* ---- Mobile (≤768px) ---- */
+    @media (max-width: 768px) {
+      body {
+        padding: 12px 10px;
+      }
+
+      .header-row {
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .header-logo-img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .developed-by-head {
+        font-size: 14px;
+      }
+
+      .projectDet {
+        padding: 14px;
+        font-size: 12px;
+      }
+
+      .form {
+        padding: 18px 14px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      input {
+        font-size: 13px;
+        padding: 9px 10px;
+      }
+
+      button {
+        font-size: 12px;
+        padding: 9px 12px;
+      }
+
+      .name-stress-cont video,
+      .form video {
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    /* ---- Small Phones (≤480px) ---- */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px 6px;
+      }
+
+      .developed-by-head {
+        font-size: 13px;
+      }
+
+      .projectDet {
+        font-size: 11px;
+        padding: 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .form {
+        padding: 14px 10px;
+      }
+
+      input {
+        padding: 8px;
+      }
+
+      button {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header-row">
+    <img src="/static/iiitk1.png" alt="IIITDM Kurnool" class="header-logo-img">
+    <h2 class="developed-by-head">
+      Indian Institute of Information Technology Design and Manufacturing, Kurnool
+      <br>
+      AI &amp; AR Based Companion
+    </h2>
+    <img src="/static/trigun logo.png" alt="Trigun Logo" class="header-logo-img">
+  </div>
+
+  <div class="projectDet">
+
+
+
+
+
+    <h3>About MindMate</h3>
+
+    MindMate is an AI-driven mental health companion designed to detect early signs of mental stress, anxiety, and
+    depression through intelligent conversation and real-time facial emotion analysis.
+    Developed as part of the AI & AR-Based Doctor Application initiative at the Indian Institute of Information
+    Technology, Design and Manufacturing (IIITDM) Kurnool, this project combines Flask-based AI services, OpenCV camera
+    modules, and Natural Language Processing (NLP) models to assess and monitor a user’s emotional well-being. <br>
+
+    <!-- <h4>Objectives</h4>
+
+1. To provide a smart mental health risk assessment system using AI conversation and emotional cues.  <br>
+
+2. To offer accessible, private, and real-time support for individuals showing early signs of mental distress. <br>
+
+3. To create a personalized AI mental health assistant capable of interactive, human-like communication. <br>
+
+4. To integrate camera-based emotion recognition with AI language understanding for accurate mental state prediction. -->
+
+    <div>
+      <div class="name-stress-cont">
+        <video id="login-camera" width="250" autoplay style="display:block;margin:auto;border-radius:8px;"></video>
+        <canvas id="login-canvas" style="display:none;"></canvas>
+        <p id="login-face-result" style="text-align:center;font-weight:bold;"></p>
+        <p id="login-stress-result" style="font-weight:bold;"></p>
+      </div>
+      <button onclick="detectLoginFace()">Scan Face</button>
+    </div>
+
+  </div>
+
+  <div class="container">
+
+
+
+    <div class="forms" id="forms">
+      <!-- Signup Form -->
+      <div class="form" id="signup-form">
+        <div class="logo">MindMate</div>
+        <h2>Create Account</h2>
+        <input id="signup-name" type="text" placeholder="Full Name" required>
+        <input id="signup-email" type="email" placeholder="Email" required>
+        <input id="signup-password" type="password" placeholder="Password" required>
+        <input id="signup-age" type="number" placeholder="Age" required>
+        <input id="signup-alternate-phone" type="text" placeholder="Alternate Phone Number" required>
+        <input id="signup-location" type="text" placeholder="Location" required>
+
+        <!-- for face -->
+        <video id="signup-camera" width="250" autoplay style="display:block;margin:auto;border-radius:8px;"></video>
+        <canvas id="signup-canvas" style="display:none;"></canvas>
+        <button type="button" onclick="captureSignupFace()">Capture Face</button>
+        <p id="signup-face-status" style="text-align:center;font-size:13px;"></p>
+
+        <button onclick="register()">Sign Up</button>
+        <button class="toggle-btn" onclick="showLogin()">Already have an account? Login</button>
+
+      </div>
+
+      <!-- Login Form -->
+      <div class="form" id="login-form">
+        <div class="logo">MindMate</div>
+        <h2>Welcome Back</h2>
+        <input id="login-email" type="email" placeholder="Email" required>
+        <input id="login-password" type="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <button class="toggle-btn" onclick="showSignup()">Don't have an account? Sign Up</button>
+
+      </div>
+    </div>
+  </div>
+
+  <h4 class="designed-by"> Designed by Dr K.Krishna Naik & D.Venkata Ramana Murthy</h4>
+
+  <script>
+
+    console.log("🔥 NEW VERSION LOADED");
+
+    let signupFaceImage = null;
+    let loginDetectionInterval = null;
+
+
+    const forms = document.getElementById('forms');
+    function showSignup() {
+      forms.style.transform = "translateX(0%)";
+
+      startCamera("signup-camera");
+
+      if (loginDetectionInterval) {
+        clearInterval(loginDetectionInterval);
+        loginDetectionInterval = null;
+      }
+    }
+
+    function showLogin() {
+      forms.style.transform = "translateX(-50%)";
+
+      startCamera("login-camera");
+    }
+
+
+    //     async function register() {
+    //   const name = document.getElementById("signup-name").value;
+    //   const email = document.getElementById("signup-email").value;
+    //   const password = document.getElementById("signup-password").value;
+    //   const age = document.getElementById("signup-age").value;
+    //   const alternatePhone = document.getElementById("signup-alternate-phone").value;
+    //   const location = document.getElementById("signup-location").value;
+
+    //   if (!name || !email || !password || !age || !alternatePhone || !location)
+    //     return alert("Please fill all fields");
+
+    //   const res = await fetch("/register", {
+    //     method: "POST",
+    //     body: new URLSearchParams({ name, email, password, age, alternatePhone, location })
+    //   });
+    //   const data = await res.json();
+    //   alert(data.message);
+    //   if (data.success) showLogin();
+    // }
+
+
+    // register function with face
+
+    async function register() {
+      const name = document.getElementById("signup-name").value;
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+      const age = document.getElementById("signup-age").value;
+      const alternatePhone = document.getElementById("signup-alternate-phone").value;
+      const location = document.getElementById("signup-location").value;
+
+      if (!name || !email || !password || !age || !alternatePhone || !location)
+        return alert("Please fill all fields");
+
+      if (!signupFaceImage)
+        return alert("Please capture your face before registering");
+
+      // 1️⃣ Register normal user
+      const res = await fetch("/register", {
+        method: "POST",
+        body: new URLSearchParams({ name, email, password, age, alternatePhone, location })
+      });
+
+      const data = await res.json();
+      alert(data.message);
+
+      if (!data.success) return;
+
+      // 2️⃣ Register face
+      await fetch("/register_face_test", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          image: signupFaceImage
+        })
+      }).then().then(res => {
+        if (res.success == True) { alert(res.message); }
+      });
+
+
+      showLogin();
+    }
+
+
+    async function login() {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      const res = await fetch("/login", {
+        method: "POST",
+        body: new URLSearchParams({ email, password }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        console.log(data);
+        window.location.href = "/app"; // go to index.html
+      } else {
+        alert(data.message || "Login failed");
+      }
+    }
+
+
+
+    // for face
+
+
+    async function startCamera(videoId) {
+  try {
+    const video = document.getElementById(videoId);
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+
+    video.onloadedmetadata = () => {
+      video.play();
+      console.log("📸 Camera ready");
+
+      // 🔥 Start detection ONLY after camera ready
+      if (videoId === "login-camera" && !loginDetectionInterval) {
+        loginDetectionInterval = setInterval(detectLoginFace, 4000);
+      }
+    };
+
+  } catch (err) {
+    console.error("Camera error:", err);
+  }
+}
+    // startCamera("signup-camera");
+    // startCamera("login-camera");
+
+
+    // let signupFaceImage = null;
+
+    function captureSignupFace() {
+      const video = document.getElementById("signup-camera");
+      const canvas = document.getElementById("signup-canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0);
+
+      signupFaceImage = canvas.toDataURL("image/jpeg");
+      console.log(signupFaceImage);
+
+      document.getElementById("signup-face-status").innerText = "Face captured successfully ✅";
+    }
+
+
+
+let isProcessing = false;
+
+    async function detectLoginFace() {
+       if (isProcessing) return;
+  isProcessing = true;
+;
+      const video = document.getElementById("login-camera");
+      const canvas = document.getElementById("login-canvas");
+
+      if (!video) {
+  isProcessing = false;
+  return;
+}
+
+if (video.videoWidth === 0) {
+  console.log("⏳ Camera not ready...");
+  isProcessing = false;
+  return;
+}
+
+      const ctx = canvas.getContext("2d");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0);
+
+      const image = canvas.toDataURL("image/jpeg");
+
+      try {
+
+        // 1️⃣ Face recognition
+       // 🔥 Add timeout protection
+const controller = new AbortController();
+const timeout = setTimeout(() => controller.abort(), 7000);
+
+let faceRes;
+try {
+  faceRes = await fetch("/recognize_face", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ image }),
+    signal: controller.signal
+  });
+} catch (err) {
+  if (err.name === "AbortError") {
+    console.log("⏱️ Request timed out");
+    document.getElementById("login-face-result").innerText =
+      "Face detection timeout ⏳";
+  } else {
+    console.error("Fetch error:", err);
+  }
+  isProcessing = false;
+  return; // 🚨 stop further execution
+}
+
+clearTimeout(timeout); // ✅ stop timer if request completed
+
+        const faceData = await faceRes.json();
+
+        if (faceData.recognized) {
+          document.getElementById("login-face-result").innerText =
+            "Detected: " + faceData.name + " 👤";
+        } else {
+          document.getElementById("login-face-result").innerText =
+            "Face not recognized";
+        }
+
+        // 2️⃣ Stress analysis
+        const stressRes = await fetch("/analyze_face", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ image })
+        });
+
+        const stressData = await stressRes.json();
+
+        if (stressData.success) {
+          document.getElementById("login-stress-result").innerText =
+            "Stress Level: " +
+            stressData.combined_risk +
+            " (" +
+            stressData.combined_stress_score +
+            "%)";
+        }
+
+      } catch (err) {
+        console.error("Error:", err);
+      }
+      finally {
+        isProcessing = false;
+      }
+    }
+
+    window.onload = () => {
+      showSignup();
+    };
+
+
+  </script>
+
+</body>
+
+</html>

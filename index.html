@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mental Health Companion - Multilingual</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MindMate - AI Based Mental Health Companion Application with Indian Language Support">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ================================ */
+    /* 🎨 CSS CUSTOM PROPERTIES        */
+    /* ================================ */
+    :root {
+      --clr-bg: #f0f4f8;
+      --clr-surface: #ffffff;
+      --clr-surface-alt: #f8fafc;
+      --clr-border: #e2e8f0;
+      --clr-border-hover: #cbd5e1;
+      --clr-text: #1e293b;
+      --clr-text-muted: #64748b;
+      --clr-text-light: #94a3b8;
+
+      /* Accent Colors */
+      --clr-primary: #0d9488;
+      --clr-primary-hover: #0f766e;
+      --clr-secondary: #6366f1;
+      --clr-secondary-hover: #4f46e5;
+      --clr-accent: #f97316;
+      --clr-accent-hover: #ea580c;
+      --clr-coral: #e11d48;
+      --clr-coral-hover: #be123c;
+      --clr-slate: #334155;
+      --clr-slate-hover: #1e293b;
+
+      /* AI Chat */
+      --clr-ai-bg: linear-gradient(135deg, #1e293b, #334155);
+      --clr-user-bg: #ffffff;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, .08);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, .12);
+      --shadow-card: 0 2px 8px rgba(0, 0, 0, .06);
+
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+
+      --transition: 0.2s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      padding: 20px 24px;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      overflow-y: auto;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ================================ */
+    /* 🌐 LANGUAGE DROPDOWN - RIGHT ALIGNED */
+    /* ================================ */
+    .language-header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto 16px auto;
+      padding: 0 8px;
+    }
+
+    .lang-selector-wrapper {
+      position: relative;
+      margin-left: auto;
+    }
+
+    .lang-selector {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: 40px;
+      padding: 10px 24px 10px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--clr-text);
+      cursor: pointer;
+      outline: none;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+      min-width: 180px;
+      backdrop-filter: blur(4px);
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+    }
+
+    .lang-selector:hover {
+      border-color: var(--clr-primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .lang-selector:focus {
+      border-color: var(--clr-primary);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+    }
+
+    /* ================================ */
+    /* 📐 MAIN LAYOUT                  */
+    /* ================================ */
+    .body-cont {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 8px;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .vid-input-cont {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .main-cont {
+      width: 340px;
+      min-width: 300px;
+      padding: 16px;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: box-shadow var(--transition);
+    }
+
+    .main-cont:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    #vid-res {
+      width: 100%;
+      min-height: 180px;
+      border: 2px dashed var(--clr-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--clr-surface-alt);
+      overflow: hidden;
+    }
+
+    #vid-res video {
+      width: 100%;
+      border-radius: var(--radius-md);
+    }
+
+    #response {
+      font-size: 15px;
+      color: var(--clr-text);
+      white-space: pre-line;
+      display: flex;
+      flex-direction: column;
+      width: 420px;
+      min-width: 300px;
+      flex: 1;
+      max-width: 520px;
+      height: 60vh;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      overflow-y: auto;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      box-shadow: var(--shadow-card);
+      gap: 6px;
+    }
+
+    .messageIn {
+      text-align: start;
+      width: fit-content;
+      max-width: 75%;
+      padding: 10px 14px;
+      background: var(--clr-surface-alt);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md) var(--radius-md) var(--radius-md) 4px;
+      margin-right: auto;
+      color: var(--clr-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .AIreply {
+      padding: 10px 14px;
+      border-radius: var(--radius-md) var(--radius-md) 4px var(--radius-md);
+      background: var(--clr-ai-bg);
+      color: #f1f5f9;
+      margin: 4px 0;
+      margin-left: auto;
+      max-width: 75%;
+      word-break: break-word;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      border: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    #chat-form {
+      margin-top: 8px;
+    }
+
+    #message {
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      width: 100%;
+      border-radius: var(--radius-sm);
+      outline: none;
+      border: 1px solid var(--clr-border);
+      background: var(--clr-surface-alt);
+      color: var(--clr-text);
+      resize: vertical;
+      min-height: 48px;
+    }
+
+    #message:focus {
+      border-color: var(--clr-primary);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, .15);
+    }
+
+    button {
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), transform 0.1s ease;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    #send-btn {
+      width: 100%;
+      background: var(--clr-primary);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      padding: 12px;
+    }
+
+    #send-btn:hover {
+      background: var(--clr-primary-hover);
+    }
+
+    #voice-btn {
+      width: 100%;
+      background: var(--clr-accent);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      padding: 10px;
+    }
+
+    #voice-btn:hover {
+      background: var(--clr-accent-hover);
+    }
+
+    #start-record-btn {
+      width: 100%;
+      background: var(--clr-coral);
+      color: #fff;
+      font-weight: 600;
+      padding: 10px;
+    }
+
+    #start-record-btn:hover {
+      background: var(--clr-coral-hover);
+    }
+
+    #start-cam-btn {
+      width: 100%;
+      background: var(--clr-slate);
+      color: #fff;
+      font-weight: 600;
+      padding: 10px;
+    }
+
+    #start-cam-btn:hover {
+      background: var(--clr-slate-hover);
+    }
+
+    .doctorSurveyBtn {
+      background: var(--clr-secondary);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .doctorSurveyBtn:hover {
+      background: var(--clr-secondary-hover);
+    }
+
+    .cam-cont {
+      display: flex;
+      flex-direction: column;
+      width: 280px;
+      min-width: 240px;
+      padding: 12px;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      gap: 8px;
+    }
+
+    #userCam {
+      width: 100%;
+      height: 160px;
+      border: 2px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      background: #0f172a;
+    }
+
+    .stress-bar-container {
+      width: 100%;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 7px;
+      overflow: hidden;
+    }
+
+    .stress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      border-radius: 7px;
+      transition: width 0.5s ease;
+    }
+
+    .stress-text {
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--clr-text-muted);
+    }
+
+    #userDet {
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid var(--clr-border);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      background: var(--clr-surface-alt);
+      font-size: 13px;
+      gap: 4px;
+    }
+
+    #intake-panel {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 20px;
+      margin-top: 30px;
+      width: 50%;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #intake-question {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      min-height: 40px;
+      padding: 8px;
+      background: var(--clr-surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--clr-border);
+    }
+
+    #intake-answer {
+      width: 100%;
+      padding: 10px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-sm);
+      background: var(--clr-surface);
+    }
+
+    .historyCont {
+      width: 100%;
+      max-width: 1400px;
+      margin: 24px auto 0;
+      padding: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+    }
+
+    #stressDashboard {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-top: 30px;
+      width: 50%;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .title-inside {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--clr-text);
+      padding: 16px 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      color: var(--clr-text-muted);
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    #speech-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: gray;
+    }
+
+    @media (max-width: 1024px) {
+      .body-cont { flex-direction: column; align-items: center; }
+      .vid-input-cont { flex-direction: column; align-items: center; }
+      .main-cont, #response, .cam-cont { width: 100%; max-width: 520px; }
+      #intake-panel, #stressDashboard { width: 100% !important; left: auto !important; transform: none !important; }
+      .language-header { margin-bottom: 8px; }
+    }
+
+    @media (max-width: 768px) {
+      .lang-selector { padding: 8px 20px 8px 16px; font-size: 12px; min-width: 160px; background-size: 14px; background-position: right 10px center; }
+      .title-inside { font-size: 1.15rem; }
+    }
+    @keyframes avatarFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes speakingPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(13, 148, 136, 0); }
+    }
+
+    @keyframes soundWave {
+      0%, 100% { height: 6px; }
+      50% { height: 22px; }
+    }
+
+    #vid-res {
+      position: relative;
+    }
+
+    #ai-avatar-img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    #ai-avatar-img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Speaking state */
+    #vid-res.speaking {
+      border-color: var(--clr-primary);
+      animation: speakingPulse 1.5s ease-in-out infinite;
+    }
+
+    #vid-res.speaking #ai-avatar-img {
+      animation: avatarFloat 2s ease-in-out infinite;
+    }
+
+    /* Sound wave bars */
+    .sound-waves {
+      display: none;
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      gap: 3px;
+      align-items: flex-end;
+      height: 28px;
+      z-index: 5;
+      background: rgba(0,0,0,0.35);
+      padding: 4px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    #vid-res.speaking .sound-waves {
+      display: flex;
+    }
+
+    .sound-wave-bar {
+      width: 4px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 3px;
+      animation: soundWave 0.6s ease-in-out infinite;
+    }
+
+    .sound-wave-bar:nth-child(1) { animation-delay: 0s; }
+    .sound-wave-bar:nth-child(2) { animation-delay: 0.1s; height: 12px; }
+    .sound-wave-bar:nth-child(3) { animation-delay: 0.2s; }
+    .sound-wave-bar:nth-child(4) { animation-delay: 0.05s; height: 16px; }
+    .sound-wave-bar:nth-child(5) { animation-delay: 0.15s; }
+    .sound-wave-bar:nth-child(6) { animation-delay: 0.25s; height: 10px; }
+    .sound-wave-bar:nth-child(7) { animation-delay: 0.08s; }
+
+    /* Speaking label */
+    .speaking-label {
+      display: none;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(13, 148, 136, 0.85);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      z-index: 5;
+      letter-spacing: 0.5px;
+    }
+
+    #vid-res.speaking .speaking-label {
+      display: block;
+      animation: speakingPulse 1.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🌐 LANGUAGE DROPDOWN - RIGHT ALIGNED -->
+  <div class="language-header">
+    <div class="lang-selector-wrapper">
+      <select id="languageSelect" class="lang-selector">
+        <option value="en">🇮🇳 English</option>
+        <option value="hi">🇮🇳 hindhi</option>
+        <option value="bn">🇮🇳 bengali</option>
+        <option value="te">🇮🇳 telugu</option>
+        <option value="mr">🇮🇳 marathi</option>
+        <option value="ta">🇮🇳 tamil</option>
+        <option value="ur">🇮🇳 urdu</option>
+        <option value="gu">🇮🇳 gujarathi</option>
+        <option value="kn">🇮🇳 kannada</option>
+        <option value="ml">🇮🇳 malayalam</option>
+        <option value="pa">🇮🇳 punjabi</option>
+        <option value="or">🇮🇳 odia</option>
+      </select>
+    </div>
+  </div>
+
+  <h2 class="title-inside" id="appTitle">MindMate: AI Based Companion Application</h2>
+
+  <div class="body-cont">
+    <div class="vid-input-cont">
+      <div class="main-cont">
+        <div class="vid" id="vid-res">
+  <img src="/static/ai_avatar.png" alt="AI Companion" id="ai-avatar-img" 
+       style="width:100%; height:100%; object-fit:cover; border-radius: var(--radius-md);">
+  
+  <!-- Voice Animation Overlay -->
+  <div class="sound-waves" id="soundWaves">
+    <div class="sound-wave-bar"></div>
+    <div class="sound-wave-bar"></div>
+    <div class="sound-wave-bar"></div>
+    <div class="sound-wave-bar"></div>
+    <div class="sound-wave-bar"></div>
+    <div class="sound-wave-bar"></div>
+    <div class="sound-wave-bar"></div>
+  </div>
+  
+  <div class="speaking-label" id="speakingLabel">Speaking...</div>
+</div>
+        <h2 id="feelingQuestion">How are you feeling today?</h2>
+        <form id="chat-form">
+          <textarea name="message" id="message" placeholder="Enter your thoughts.." required></textarea>
+          <div><button type="submit" id="send-btn">Send</button></div>
+        </form>
+        <button id="voice-btn">Speak</button>
+        <button id="start-record-btn">Analyze My Voice Stress</button>
+        <p id="speech-status" style="font-size:12px;color:gray; margin-top:10px;"></p>
+      </div>
+
+      <div id="response"></div>
+
+      <div class="cam-cont" id="cam-cont">
+        <video id="userCam" autoplay playsinline muted></video>
+        <button id="start-cam-btn">Start Camera</button>
+        <div class="stress-bar-container"><div class="stress-bar" id="stress-bar"></div></div>
+        <div class="stress-text" id="stress-text">Stress: 0%</div>
+        <div id="userDet">
+          <h3 id="userDetailsTitle">User Details</h3>
+          <p id="userName">Name: </p>
+          <p id="userEmail">Email: </p>
+          <p id="userAge">Age: </p>
+          <p id="userLocation">Location: </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="intake-panel">
+    <h3 id="guidedIntakeTitle" style="margin:0 0 8px 0; font-family: monospace;">Guided Intake</h3>
+    <div id="intake-question" style="min-height:48px; padding:6px;"></div>
+    <div style="display:flex; flex-direction: column; gap:8px; margin-top:8px;">
+      <button id="start-doctor-survey-btn" class="doctorSurveyBtn">Start Doctor Survey</button>
+      <input id="intake-answer" placeholder="Type your answer or click 'Pass'" />
+      <div style="display: flex; gap: 8px; justify-content: space-between;">
+        <button id="intake-pass-btn" type="button" style="width: 100%;">Pass</button>
+        <button id="intake-submit-btn" type="button" style="width: 100%;">Reply</button>
+        <button id="intake-mic-btn" style="width: 100%;">Speak</button>
+      </div>
+    </div>
+    <div style="margin-top:8px; font-size:12px; color:gray;" id="intake-help">We will ask a few gentle questions. Say "pass" if you prefer not to answer.</div>
+    <div id="intake-progress" style="margin-top:8px; font-size:13px; color:#555;"></div>
+  </div>
+
+  <div id="stressDashboard">
+    <h3 id="stressDashboardTitle" style="text-align:center; font-family: monospace;">Stress Dashboard</h3>
+    <div style="width:100%; padding:10px; border:1px solid #c8c8c8; border-radius:8px; margin-bottom:15px; background:#f9f9f9;">
+      <p style="font-family: monospace; text-align:center;"><b id="avgStressLabel">Average Stress (Today):</b> <span id="avgStressValue">Calculating...</span></p>
+    </div>
+    <div style="width:100%; max-height:150px; overflow-y:auto; border:1px solid #c8c8c8; border-radius:8px; padding:10px; background:#ffffff;">
+      <h4 id="recentStressLabel" style="margin-top:0; font-family: monospace;">Recent Stress Levels</h4>
+      <div id="recentStressList" style="font-family: monospace; font-size: 14px;"></div>
+    </div>
+  </div>
+
+  <div class="historyCont" id="historyCont">
+    <h3 id="historyTitle">History</h3>
+  </div>
+
+  <!-- Externalized script to avoid duplicate handlers and context size limitations -->
+  <script src="/static/app.js"></script>
+</body>
+
+</html>

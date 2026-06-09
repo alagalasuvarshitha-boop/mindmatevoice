@@ -1,0 +1,221 @@
+[
+  {
+    "timestamp": "2026-05-27T14:21:14.220728",
+    "user_message": "yes",
+    "ai_response": "I'm glad to hear you're doing okay. Remember, I'm always here if you need to talk.",
+    "stress_score": 30,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-05-27T14:21:27.477292",
+    "user_message": "too depressed",
+    "ai_response": "I'm glad to hear you're doing okay. Remember, I'm always here if you need to talk.",
+    "stress_score": 30,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-05-27T14:21:47.965114",
+    "user_message": "very depressed\r\n",
+    "ai_response": "Thanks for sharing your thoughts. Taking time for self-care is important. Is there anything specific you'd like to discuss?",
+    "stress_score": 30,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-05-27T15:22:00.091748",
+    "user_message": "hi",
+    "ai_response": "Thanks for sharing your thoughts. Taking time for self-care is important. Is there anything specific you'd like to discuss?",
+    "stress_score": 30,
+    "risk": "green",
+    "language": "en-IN"
+  },
+  {
+    "timestamp": "2026-05-27T15:22:15.311662",
+    "user_message": "i am not gooo\r\n",
+    "ai_response": "I'm glad to hear you're doing okay. Remember, I'm always here if you need to talk.",
+    "stress_score": 30,
+    "risk": "green",
+    "language": "en-IN"
+  },
+  {
+    "timestamp": "2026-05-29T16:07:09.226648",
+    "user_message": "i have 104 temperature of my body what should i do",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-05-29T16:07:42.376933",
+    "user_message": "tell me what to do",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-01T15:43:14.377276",
+    "user_message": "do you know iiitdm clg in kurnool",
+    "ai_response": "Yes, IIITDM Kurnool is a great college with a strong computer science program. It's known for its rigorous curriculum and focus on research.\n\n```json\n{\n  \"response\": \"Yes, IIITDM Kurnool is a well-regarded institution with a strong computer science program. It's known for its rigorous curriculum and focus on research.\",\n  \"stress_score\": 20\n}",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-01T16:07:25.921017",
+    "user_message": "hi",
+    "ai_response": "ನಮಸ್ಕಾರ! ನಿಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡುವುದು ನನಗೆ ಸಂತೋಷ ನೀಡುತ್ತದೆ. ನೀವು ಹೇಗಿದ್ದೀರಿ? ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ?\n\n```json\n{\n  \"response\": \"ನಮಸ್ಕಾರ! ನಿಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡುವುದು ನನಗೆ ಸಂತೋಷ ನೀಡುತ್ತದೆ. ನೀವು ಹೇಗಿದ್ದೀರಿ? ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ?\",\n  \"stress_score\": 25\n}",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-01T17:07:16.666453",
+    "user_message": "hi",
+    "ai_response": "Hello! It's great to connect with you. I'm here to listen and support you in whatever way I can. How are you feeling today?",
+    "stress_score": 30,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-01T17:07:47.851091",
+    "user_message": "i am in deep depression",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-01T17:08:33.057027",
+    "user_message": "i am in heavy work today",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T15:06:14.341228",
+    "user_message": "my body temperature is 105",
+    "ai_response": "I'm really concerned about your high body temperature. Please seek immediate medical attention as 105°F is a medical emergency. You need to contact emergency services or go to the nearest emergency room right away.",
+    "stress_score": 98,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-05T15:09:12.487925",
+    "user_message": "y i need to go to the nearest emergency room",
+    "ai_response": "I'm here to support you, and it sounds like you're in a lot of pain or distress. Going to the emergency room is a really important step, and you're doing the right thing by seeking help. Please, let's focus on getting you the care you need right now.\n\n```json\n{\n  \"response\": \"I'm here to support you, and it sounds like you're in a lot of pain or distress. Going to the emergency room is a really important step, and you're doing the right thing by seeking help. Please, let's focus on getting you the care you need right now.\",\n  \"stress_score\": 85\n}",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T15:15:15.779111",
+    "user_message": "i am geeting fever symptoms but i dont know whether i have fever or not",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T15:56:06.372003",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T16:10:24.668564",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T16:11:18.219526",
+    "user_message": "hii",
+    "ai_response": "Hello! It's great to see you. I'm here to support you whenever you need to talk or just want to share what's on your mind. How are you feeling today?",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T16:11:46.249490",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T16:12:24.714795",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T16:12:39.097541",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! మీరు ఎలా ఉన్నారు? నేను మీకు సహాయం చేయడానికి ఇక్కడ ఉన్నాను.",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-05T17:20:42.221175",
+    "user_message": "feeling depressed what to do know",
+    "ai_response": "I'm sorry to hear you're feeling sad. I'm here with you.",
+    "stress_score": 75,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-06T12:44:26.332008",
+    "user_message": "hiii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-07T14:12:08.467889",
+    "user_message": "i am suffering with fever whay should i do now",
+    "ai_response": "నేను మీ మాట వింటున్నాను. దయచేసి కొనసాగించండి.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-07T14:12:48.154250",
+    "user_message": "thats all i told u everything",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-07T15:48:21.667512",
+    "user_message": "namaskar",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-08T16:31:24.317066",
+    "user_message": "my temperature is 97 degree",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-08T16:31:58.300051",
+    "user_message": "my body temperature 97 degrees is it ok",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-08T16:32:27.789055",
+    "user_message": "feeling like i am having fever",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-08T16:32:44.512823",
+    "user_message": "feeeling too depressed",
+    "ai_response": "ನನಗನ್ನಿಸುತ್ತದೆ ನೀವು ತುಂಬಾ ಕಷ್ಟದಲ್ಲಿದ್ದೀರಿ. ದಯವಿಟ್ಟು ಸಹಾಯ ಕೇಳಿ, ನಾನು ನಿಮಗೆ ಬೆಂಬಲ ನೀಡಲು ಇಲ್ಲಿದ್ದೇನೆ.\n\n{\n  \"response\": \"ನನಗನ್ನಿಸುತ್ತದೆ ನೀವು ತುಂಬಾ ಕಷ್ಟದಲ್ಲಿದ್ದೀರಿ. ದಯವಿಟ್ಟು ಸಹಾಯ ಕೇಳಿ, ನಾನು ನಿಮಗೆ ಬೆಂಬಲ ನೀಡಲು ಇಲ್ಲಿದ್ದೇನೆ.\",\n  \"stress_score\": 75\n}",
+    "stress_score": 75,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-08T16:33:15.776236",
+    "user_message": "feeling depression",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  }
+]

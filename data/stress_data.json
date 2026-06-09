@@ -1,0 +1,302 @@
+[
+  {
+    "timestamp": "2026-06-01 17:08:33",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 14:30:09",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 14:34:34",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 14:41:58",
+    "emotion": "calm",
+    "stress_score": 35,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 14:48:41",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 15:00:04",
+    "emotion": "calm",
+    "stress_score": 15,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 15:06:14",
+    "emotion": "distressed",
+    "stress_score": 98,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 15:09:12",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 15:10:51",
+    "emotion": "calm",
+    "stress_score": 5,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 15:11:07",
+    "emotion": "calm",
+    "stress_score": 0,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 15:11:30",
+    "emotion": "stressed",
+    "stress_score": 55,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 15:15:15",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 15:56:06",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 16:10:24",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 16:11:18",
+    "emotion": "calm",
+    "stress_score": 25,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 16:11:46",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 16:12:24",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 16:12:39",
+    "emotion": "calm",
+    "stress_score": 25,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 16:13:04",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-05 17:20:42",
+    "emotion": "distressed",
+    "stress_score": 75,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-05 17:24:04",
+    "emotion": "calm",
+    "stress_score": 15,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-06 12:43:05",
+    "emotion": "calm",
+    "stress_score": 25,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-06 12:43:36",
+    "emotion": "stressed",
+    "stress_score": 60,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-06 12:44:02",
+    "emotion": "calm",
+    "stress_score": 25,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-06 12:44:26",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-06 12:48:53",
+    "emotion": "calm",
+    "stress_score": 25,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-06 12:51:19",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-06 12:51:40",
+    "emotion": "calm",
+    "stress_score": 25,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-07 14:06:12",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-07 14:12:08",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-07 14:12:48",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-07 15:22:08",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-07 15:22:27",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-07 15:23:35",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-07 15:47:54",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-07 15:48:21",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-08 13:44:43",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:31:24",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-08 16:31:58",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-08 16:32:27",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-08 16:32:44",
+    "emotion": "distressed",
+    "stress_score": 75,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-08 16:33:15",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "text"
+  },
+  {
+    "timestamp": "2026-06-08 16:35:32",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:36:27",
+    "emotion": "stressed",
+    "stress_score": 55,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:36:59",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:37:07",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:37:27",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:37:55",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:38:11",
+    "emotion": "distressed",
+    "stress_score": 75,
+    "source": "voice"
+  },
+  {
+    "timestamp": "2026-06-08 16:38:38",
+    "emotion": "calm",
+    "stress_score": 40,
+    "source": "voice"
+  }
+]
