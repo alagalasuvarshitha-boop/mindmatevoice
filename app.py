@@ -619,13 +619,17 @@ def register():
 # ============================================
 # STATIC AND DOCK ROUTING
 # ============================================
-@app.route('/')
-def index():
-    """Serves the primary UI dashboard"""
+@app.route('/home')
+def home():
     return send_from_directory('.', 'index.html')
+
 @app.route('/static/<path:filename>')
 def serve_static(filename):
     return send_from_directory('static', filename)
+
+@app.route('/')
+def index():
+    return send_from_directory('.', 'login 2.html')
 # ============================================
 # MAIN APPLICATION BOOT
 # ============================================
