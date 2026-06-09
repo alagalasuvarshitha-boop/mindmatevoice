@@ -706,7 +706,7 @@
       if (data.success) {
         localStorage.setItem("user", JSON.stringify(data.user));
         console.log(data);
-        window.location.href = "/app"; // go to index.html
+        window.location.href = "/home"; // go to index.html
       } else {
         alert(data.message || "Login failed");
       }
