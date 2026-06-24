@@ -243,6 +243,7 @@ function applyLanguageToPage(langCode) {
   }
   
   localStorage.setItem("mindmate_language", langCode);
+  syncAvatarWithLanguageVoice(langCode);
 }
 
 // Language selector event listener
@@ -345,30 +346,145 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+// ======================== AVATAR LIP-SYNC & GENDER SWITCHING ========================
+let currentAvatarGender = "female";
+let activeUtterance = null;
+let lipSyncInterval = null;
+
+function updateAvatarGender(gender) {
+  if (currentAvatarGender === gender) return;
+  currentAvatarGender = gender;
+  
+  const avatarImg = document.getElementById("ai-avatar-img");
+  const mouthImg = document.getElementById("avatar-mouth");
+  if (!avatarImg || !mouthImg) return;
+  
+  if (gender === "male") {
+    avatarImg.src = "/static/doctor_male.png";
+    mouthImg.src = "/static/doctor_male_mouth.png";
+    mouthImg.style.left = "46.40%";
+    mouthImg.style.top = "34.03%";
+    mouthImg.style.width = "7.20%";
+    mouthImg.style.height = "5.40%";
+  } else {
+    avatarImg.src = "/static/doctor_female.png";
+    mouthImg.src = "/static/doctor_female_mouth.png";
+    mouthImg.style.left = "45.31%";
+    mouthImg.style.top = "31.35%";
+    mouthImg.style.width = "9.38%";
+    mouthImg.style.height = "4.69%";
+  }
+}
+
+function detectVoiceGender(voiceName) {
+  const name = voiceName.toLowerCase();
+  if (name.includes("male") || name.includes("david") || name.includes("mark") || name.includes("george") || name.includes("ravi") || name.includes("harsh") || name.includes("standard-b") || name.includes("wavenet-b") || name.includes("neural-b")) {
+    return "male";
+  }
+  return "female";
+}
+
+function syncAvatarWithLanguageVoice(language) {
+  if (!('speechSynthesis' in window)) {
+    if (language === 'en') {
+      updateAvatarGender('male');
+    } else {
+      updateAvatarGender('female');
+    }
+    return;
+  }
+  const voices = window.speechSynthesis.getVoices();
+  const langMap = {
+    'en': 'en-US', 'hi': 'hi-IN', 'te': 'te-IN', 'ta': 'ta-IN',
+    'kn': 'kn-IN', 'ml': 'ml-IN', 'bn': 'bn-IN', 'gu': 'gu-IN',
+    'mr': 'mr-IN', 'pa': 'pa-IN', 'ur': 'ur-PK', 'or': 'or-IN'
+  };
+  const targetLang = langMap[language] || 'en-US';
+  const nativeVoice = voices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(language.toLowerCase()));
+  if (nativeVoice) {
+    const gender = detectVoiceGender(nativeVoice.name);
+    updateAvatarGender(gender);
+  } else {
+    if (language === 'en') {
+      updateAvatarGender('male');
+    } else {
+      updateAvatarGender('female');
+    }
+  }
+}
+
+function startLipSync() {
+  stopLipSync();
+  const mouth = document.getElementById("avatar-mouth");
+  if (!mouth) return;
+  
+  const container = document.getElementById("vid-res");
+  if (container) container.classList.add("speaking");
+  
+  lipSyncInterval = setInterval(() => {
+    const scaleY = 0.3 + Math.random() * 0.9;
+    mouth.style.transform = `scaleY(${scaleY})`;
+  }, 100);
+}
+
+function stopLipSync() {
+  if (lipSyncInterval) {
+    clearInterval(lipSyncInterval);
+    lipSyncInterval = null;
+  }
+  const mouth = document.getElementById("avatar-mouth");
+  if (mouth) {
+    mouth.style.transform = "scaleY(1)";
+  }
+  const container = document.getElementById("vid-res");
+  if (container) container.classList.remove("speaking");
+}
+
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    syncAvatarWithLanguageVoice(currentLang);
+  };
+}
+
 // ======================== AUDIO OUTPUT (TTS) ========================
 function speakText(text, language) {
   if (!text) return;
   
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
+    stopLipSync();
     
-    const utterance = new SpeechSynthesisUtterance(text);
+    activeUtterance = new SpeechSynthesisUtterance(text);
     
     const langMap = {
       'en': 'en-US', 'hi': 'hi-IN', 'te': 'te-IN', 'ta': 'ta-IN',
       'kn': 'kn-IN', 'ml': 'ml-IN', 'bn': 'bn-IN', 'gu': 'gu-IN',
       'mr': 'mr-IN', 'pa': 'pa-IN', 'ur': 'ur-PK', 'or': 'or-IN'
     };
-    utterance.lang = langMap[language] || 'en-US';
-    utterance.rate = 0.95;
+    activeUtterance.lang = langMap[language] || 'en-US';
+    activeUtterance.rate = 0.95;
     
     const voices = window.speechSynthesis.getVoices();
-    const nativeVoice = voices.find(v => v.lang.startsWith(language));
+    const nativeVoice = voices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(language.toLowerCase()));
     if (nativeVoice) {
-      utterance.voice = nativeVoice;
+      activeUtterance.voice = nativeVoice;
+      const gender = detectVoiceGender(nativeVoice.name);
+      updateAvatarGender(gender);
     }
     
-    window.speechSynthesis.speak(utterance);
+    activeUtterance.onstart = () => {
+      startLipSync();
+    };
+    activeUtterance.onend = () => {
+      stopLipSync();
+      activeUtterance = null;
+    };
+    activeUtterance.onerror = () => {
+      stopLipSync();
+      activeUtterance = null;
+    };
+    
+    window.speechSynthesis.speak(activeUtterance);
   }
 }
 
@@ -420,7 +536,7 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         const res = await fetch("/process_voice", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text: transcript, language: currentLang })
+          body: JSON.stringify({ text: transcript, language: currentLang, gender: currentAvatarGender })
         });
         const data = await res.json();
         
@@ -438,6 +554,10 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
           // Play generated TTS response
           if (data.audio_url) {
             const audio = new Audio(data.audio_url);
+            audio.addEventListener("play", () => startLipSync());
+            audio.addEventListener("ended", () => stopLipSync());
+            audio.addEventListener("pause", () => stopLipSync());
+            audio.addEventListener("error", () => stopLipSync());
             audio.play().catch(e => {
               console.log("Audio play failed, falling back to local TTS", e);
               speakText(data.ai_response, currentLang);
@@ -640,11 +760,13 @@ async function startIntake() {
   }
 }
 
-function showQuestion(q) {
+function showQuestion(q, skipSpeak = false) {
   currentIntakeQuestion = q;
   document.getElementById("intake-question").innerText = q.text || "";
   document.getElementById("intake-progress").innerText = `Question ${q.id} of 5`;
-  speakText(q.text, 'en');
+  if (!skipSpeak) {
+    speakText(q.text, 'en');
+  }
 }
 
 async function submitIntakeAnswer(ans = null) {
@@ -680,6 +802,11 @@ async function submitIntakeAnswer(ans = null) {
     responseEl.appendChild(aiMsg);
     responseEl.scrollTop = responseEl.scrollHeight;
 
+    let feedbackText = data.reply || "";
+    if (data.urgent && data.urgent_message) {
+      feedbackText += ". Warning: " + data.urgent_message;
+    }
+
     if (data.urgent && data.urgent_message) {
       const alertMsg = document.createElement("div");
       alertMsg.className = "AIreply";
@@ -691,7 +818,8 @@ async function submitIntakeAnswer(ans = null) {
 
     // Fetch next or complete
     if (data.next_question) {
-      showQuestion(data.next_question);
+      showQuestion(data.next_question, true);
+      feedbackText += ". " + data.next_question.text;
     } else if (data.done) {
       document.getElementById("intake-question").innerText = "✅ Intake complete! Thank you for sharing.";
       document.getElementById("intake-progress").innerText = "Completed";
@@ -699,6 +827,11 @@ async function submitIntakeAnswer(ans = null) {
       document.getElementById("intake-submit-btn").disabled = true;
       document.getElementById("intake-pass-btn").disabled = true;
       document.getElementById("intake-mic-btn").disabled = true;
+      feedbackText += ". Intake complete! Thank you for sharing.";
+    }
+
+    if (feedbackText) {
+      speakText(feedbackText, 'en');
     }
   } catch (err) {
     console.error("Intake submit error:", err);

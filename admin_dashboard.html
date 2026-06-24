@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MindMate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5; 
+            --primary-light: #e0e7ff;
+            --danger: #ef4444;
+            --danger-light: #fef2f2;
+            --success: #22c55e;
+            --success-light: #f0fdf4;
+            --warning: #f59e0b;
+            --warning-light: #fffbeb;
+            --surface: #ffffff;
+            --background: #f8fafc;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --sidebar-width: 250px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #1e1e2f; /* Dark theme for admin sidebar */
+            color: #cbd5e1;
+            display: flex;
+            flex-direction: column;
+        }
+        .brand {
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+            flex: 1;
+        }
+        .nav-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-left: 4px solid var(--primary);
+        }
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        .topbar {
+            height: 70px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .dashboard-content {
+            padding: 30px;
+        }
+        .page-header {
+            margin-bottom: 30px;
+        }
+        .page-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 1.8rem;
+        }
+        .page-header p {
+            margin: 0;
+            color: var(--text-light);
+        }
+        /* Grid Layout */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .stat-info h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .stat-info p {
+            margin: 5px 0 0 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .bg-primary { background: var(--primary-light); color: var(--primary); }
+        .bg-danger { background: var(--danger-light); color: var(--danger); }
+        .bg-warning { background: var(--warning-light); color: var(--warning); }
+        .bg-success { background: var(--success-light); color: var(--success); }
+        
+        .sections-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        .panel {
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 20px;
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .panel-header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .btn {
+            padding: 8px 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .badge.critical { background: var(--danger-light); color: var(--danger); }
+        .badge.monitoring { background: var(--warning-light); color: var(--warning); }
+        .badge.stable { background: var(--success-light); color: var(--success); }
+        
+        /* Language Selector */
+        select.lang-selector {
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+        @media (max-width: 1024px) {
+            .sections-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            ⚙️ Admin Portal
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-item active">📈 System Overview</a>
+            <a href="#" class="nav-item">🧑‍⚕️ Manage Doctors</a>
+            <a href="#" class="nav-item">👥 Manage Users</a>
+            <a href="#" class="nav-item">📊 Report Logs</a>
+            <a href="#" class="nav-item">⚙️ Settings</a>
+        </nav>
+        <div style="padding: 20px;">
+            <a href="/admin_login" class="nav-item" style="color: #f87171;">🚪 Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <select id="languageSelect" class="lang-selector" onchange="setLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="te">Telugu</option>
+                    <option value="bn">Bengali</option>
+                    <option value="mr">Marathi</option>
+                    <option value="ta">Tamil</option>
+                    <option value="ur">Urdu</option>
+                    <option value="gu">Gujarati</option>
+                    <option value="kn">Kannada</option>
+                    <option value="ml">Malayalam</option>
+                    <option value="pa">Punjabi</option>
+                    <option value="or">Odia</option>
+                </select>
+            </div>
+            <div class="user-profile">
+                <span>Super Admin</span>
+                <div class="avatar" style="background:#1e293b;">SA</div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="page-header">
+                <h1>Platform Management</h1>
+                <p>System oversight, user management, and clinical analytics.</p>
+            </div>
+
+            <!-- Top Stats -->
+            <div class="stats-grid">
+                <div class="stat-card" style="cursor:pointer;" onclick="showDoctors()">
+                    <div class="stat-icon bg-primary">👥</div>
+                    <div class="stat-info">
+                        <h3 id="stat-total-users">...</h3>
+                        <p>Total Registered Users</p>
+                    </div>
+                </div>
+                <div class="stat-card" style="cursor:pointer;" onclick="showDoctors()">
+                    <div class="stat-icon bg-success">👨‍⚕️</div>
+                    <div class="stat-info">
+                        <h3 id="stat-total-doctors">...</h3>
+                        <p>Active Doctors</p>
+                    </div>
+                </div>
+                <div class="stat-card" style="border-color: var(--danger-light); cursor:pointer;" onclick="showAlerts()">
+                    <div class="stat-icon bg-danger">⚠️</div>
+                    <div class="stat-info">
+                        <h3 id="stat-alerts">...</h3>
+                        <p>System Alerts / Escalations</p>
+                    </div>
+                </div>
+                <div class="stat-card" style="cursor:pointer;" onclick="showPatients()">
+                    <div class="stat-icon bg-warning">📊</div>
+                    <div class="stat-info">
+                        <h3 id="stat-total-admins">...</h3>
+                        <p>Total Admins</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sections-grid">
+                <!-- Main Table -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2 id="admin-table-title">Registered Doctors</h2>
+                        <button class="btn" onclick="showDoctors()">View Doctors</button>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th id="admin-col1">Name</th>
+                                    <th id="admin-col2">Specialization</th>
+                                    <th id="admin-col3">Email</th>
+                                    <th id="admin-col4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-dynamic-tbody">
+                                <tr><td colspan="4" style="text-align:center;">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right Side Modules -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2>Portal Management Quick Actions</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <button class="btn" style="text-align:left; background:var(--background); color:var(--text-dark); border:1px solid var(--border);">➕ Add New Doctor</button>
+                            <button class="btn" style="text-align:left; background:var(--background); color:var(--text-dark); border:1px solid var(--border);">👁️ View Audit Logs</button>
+                            <button class="btn" style="text-align:left; background:var(--background); color:var(--text-dark); border:1px solid var(--border);">🌐 System Language Config</button>
+                            <button class="btn" style="text-align:left; background:var(--background); color:var(--text-dark); border:1px solid var(--border);">⚙️ Security Settings</button>
+                        </div>
+                    </div>
+                    
+                    <div class="panel" style="background: var(--primary-light); border: 1px solid var(--primary);">
+                        <h3 style="margin-top:0; color: var(--primary);">System Status: Online</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); margin:0;">D-ID Avatar API: <strong style="color:var(--success)">Connected</strong></p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); margin-top:5px;">SQLite Database: <strong style="color:var(--success)">Healthy</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/i18n.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const res = await fetch('/api/admin/dashboard_data');
+                if(res.status === 401) {
+                    window.location.href = '/admin_login';
+                    return;
+                }
+                const data = await res.json();
+                if(data.success) {
+                    document.getElementById('stat-total-users').innerText = data.stats.total_users;
+                    document.getElementById('stat-total-doctors').innerText = data.stats.total_doctors;
+                    document.getElementById('stat-alerts').innerText = data.stats.system_alerts;
+                    document.getElementById('stat-total-admins').innerText = data.stats.total_admins;
+                }
+            } catch(e) {
+                console.error("Failed to load admin dashboard data", e);
+            }
+            // Load doctors by default
+            showDoctors();
+        });
+
+        async function showDoctors() {
+            document.getElementById('admin-table-title').innerText = 'Registered Doctors';
+            document.getElementById('admin-col1').innerText = 'Doctor Name';
+            document.getElementById('admin-col2').innerText = 'Specialization';
+            document.getElementById('admin-col3').innerText = 'Email';
+            document.getElementById('admin-col4').innerText = 'Action';
+            const tbody = document.getElementById('admin-dynamic-tbody');
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Loading...</td></tr>';
+            try {
+                const res = await fetch('/api/admin/doctors');
+                const data = await res.json();
+                tbody.innerHTML = '';
+                if(!data.doctors || data.doctors.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No doctors registered yet.</td></tr>';
+                    return;
+                }
+                data.doctors.forEach(d => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td><strong>${d.name}</strong></td>
+                            <td>${d.specialization || 'General'}</td>
+                            <td>${d.email}</td>
+                            <td><button class="btn" style="font-size:0.8rem;">View</button></td>
+                        </tr>`;
+                });
+            } catch(e) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Error loading data.</td></tr>';
+            }
+        }
+
+        async function showPatients() {
+            document.getElementById('admin-table-title').innerText = 'All Patients';
+            document.getElementById('admin-col1').innerText = 'Patient Name';
+            document.getElementById('admin-col2').innerText = 'Status';
+            document.getElementById('admin-col3').innerText = 'Doctor';
+            document.getElementById('admin-col4').innerText = 'Last Report';
+            const tbody = document.getElementById('admin-dynamic-tbody');
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Loading...</td></tr>';
+            try {
+                const res = await fetch('/api/admin/patients');
+                const data = await res.json();
+                tbody.innerHTML = '';
+                if(!data.patients || data.patients.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No patients found.</td></tr>';
+                    return;
+                }
+                data.patients.forEach(p => {
+                    const badgeClass = p.status === 'Critical' ? 'critical' : p.status === 'Monitoring' ? 'monitoring' : 'stable';
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${p.name}</td>
+                            <td><span class="badge ${badgeClass}">${p.status}</span></td>
+                            <td>${p.doctor_name}</td>
+                            <td>${p.last_report}</td>
+                        </tr>`;
+                });
+            } catch(e) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Error loading data.</td></tr>';
+            }
+        }
+
+        async function showAlerts() {
+            document.getElementById('admin-table-title').innerText = 'System Alerts';
+            document.getElementById('admin-col1').innerText = 'Type';
+            document.getElementById('admin-col2').innerText = 'Description';
+            document.getElementById('admin-col3').innerText = 'Status';
+            document.getElementById('admin-col4').innerText = 'Time';
+            const tbody = document.getElementById('admin-dynamic-tbody');
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Loading...</td></tr>';
+            try {
+                const res = await fetch('/api/admin/alerts');
+                const data = await res.json();
+                tbody.innerHTML = '';
+                if(!data.alerts || data.alerts.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No alerts at this time.</td></tr>';
+                    return;
+                }
+                data.alerts.forEach(a => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td><span class="badge critical">${a.type}</span></td>
+                            <td>${a.description}</td>
+                            <td>${a.status}</td>
+                            <td>${a.created_at || ''}</td>
+                        </tr>`;
+                });
+            } catch(e) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Error loading alerts.</td></tr>';
+            }
+        }
+    </script>
+</body>
+</html>

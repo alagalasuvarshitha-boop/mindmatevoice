@@ -266,6 +266,74 @@ def query_sarvam_llm(user_message, language):
     except Exception as e:
         print(f"Exception during Sarvam LLM query: {e}")
         return get_offline_fallback(user_message, language)
+
+def generate_tts_audio(text, language, gender):
+    """
+    Generate audio for given text, language, and gender.
+    Uses Sarvam AI TTS if key is present, otherwise falls back to gTTS.
+    """
+    api_key = os.getenv("SARVAM_API_KEY")
+    audio_url = None
+    
+    if api_key:
+        # Map frontend language code to Sarvam BCP-47 codes
+        lang_map = {
+            'hi': 'hi-IN', 'te': 'te-IN', 'ta': 'ta-IN', 'kn': 'kn-IN',
+            'en': 'en-IN', 'bn': 'bn-IN', 'mr': 'mr-IN', 'gu': 'gu-IN',
+            'ml': 'ml-IN', 'or': 'or-IN', 'pa': 'pa-IN', 'ur': 'ur-PK'
+        }
+        language_code = lang_map.get(language, 'en-IN')
+        
+        # Sarvam supports multiple speakers:
+        # Female: anushka (default), kavya, aarohi, aditi
+        # Male: arvind (default), narendra, madhav, chaitanya
+        speaker = 'arvind' if gender == 'male' else 'anushka'
+        
+        url = "https://api.sarvam.ai/text-to-speech"
+        payload = {
+            "text": text,
+            "speaker": speaker,
+            "language_code": language_code,
+            "format": "mp3"
+        }
+        headers = {
+            "api-subscription-key": api_key,
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        }
+        try:
+            response = requests.post(url, json=payload, headers=headers)
+            if response.status_code == 200:
+                audio_filename = f"response_{uuid.uuid4().hex}.mp3"
+                audio_path = os.path.join('static', audio_filename)
+                with open(audio_path, 'wb') as f:
+                    f.write(response.content)
+                audio_url = f'/static/{audio_filename}'
+                return audio_url
+            else:
+                print(f"Sarvam TTS failed with {response.status_code}: {response.text}")
+        except Exception as e:
+            print(f"Exception during Sarvam TTS generation: {e}")
+            
+    # Fallback to gTTS
+    if GTTS_AVAILABLE:
+        try:
+            lang_map = {
+                'mr': 'mr', 'hi': 'hi', 'te': 'te', 'ta': 'ta',
+                'kn': 'kn', 'ml': 'ml', 'bn': 'bn', 'gu': 'gu',
+                'en': 'en', 'pa': 'pa', 'ur': 'ur', 'or': 'or'
+            }
+            tts_lang = lang_map.get(language, 'en')
+            tts = gTTS(text=text, lang=tts_lang, slow=False)
+            audio_filename = f"response_{uuid.uuid4().hex}.mp3"
+            audio_path = os.path.join('static', audio_filename)
+            tts.save(audio_path)
+            audio_url = f'/static/{audio_filename}'
+        except Exception as e:
+            print(f"gTTS Generation Error: {e}")
+            
+    return audio_url
+
 # ============================================
 # API ENDPOINTS
 # ============================================
@@ -300,37 +368,24 @@ def predict():
         'risk': risk,
         'stress_score': stress_score
     })
+
 @app.route('/process_voice', methods=['POST'])
 def process_voice():
     """Process voice text and return AI response with audio URL"""
     data = request.json
     user_text = data.get('text', '')
     language = data.get('language', 'en')
+    gender = data.get('gender', 'female')
     
     if not user_text:
         return jsonify({'error': 'No text provided'}), 400
     
     # Get LLM response
     ai_response, stress_score = query_sarvam_llm(user_text, language)
-    # Generate voice response using gTTS
-    audio_url = None
-    if GTTS_AVAILABLE:
-        try:
-            # Map code to gTTS supported codes
-            lang_map = {
-                'mr': 'mr', 'hi': 'hi', 'te': 'te', 'ta': 'ta',
-                'kn': 'kn', 'ml': 'ml', 'bn': 'bn', 'gu': 'gu',
-                'en': 'en', 'pa': 'pa', 'ur': 'ur', 'or': 'or'
-            }
-            tts_lang = lang_map.get(language, 'en')
-            
-            tts = gTTS(text=ai_response, lang=tts_lang, slow=False)
-            audio_filename = f"response_{uuid.uuid4().hex}.mp3"
-            audio_path = os.path.join('static', audio_filename)
-            tts.save(audio_path)
-            audio_url = f'/static/{audio_filename}'
-        except Exception as e:
-            print(f"gTTS Generation Error: {e}")
+    
+    # Generate voice response
+    audio_url = generate_tts_audio(ai_response, language, gender)
+    
     # Add to stress logs
     emotion = "distressed" if stress_score > 70 else "stressed" if stress_score > 40 else "calm"
     add_stress_log(emotion, stress_score, source='voice')

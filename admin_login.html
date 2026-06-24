@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - MindMate Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5; /* Indigo for admins */
+            --primary-hover: #4338ca;
+            --surface: #ffffff;
+            --background: #eef2ff;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-card {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 0 0 5px 0;
+        }
+        .header p {
+            color: var(--text-light);
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+        .password-container {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover {
+            background: var(--primary-hover);
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .back-link:hover {
+            color: var(--primary);
+        }
+        /* Top right lang selector */
+        .language-header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        select.lang-selector {
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            background: transparent;
+        }
+        #forgot-password-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .error-msg {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="language-header">
+        <select id="login-language-selector" class="lang-selector" onchange="setLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="bn">Bengali</option>
+            <option value="mr">Marathi</option>
+            <option value="ta">Tamil</option>
+            <option value="ur">Urdu</option>
+            <option value="gu">Gujarati</option>
+            <option value="kn">Kannada</option>
+            <option value="ml">Malayalam</option>
+            <option value="pa">Punjabi</option>
+            <option value="or">Odia</option>
+        </select>
+    </div>
+
+    <div class="login-card">
+        <div class="header">
+            <h1>⚙️ Admin Portal</h1>
+            <p>System oversight and management</p>
+        </div>
+        
+        <form id="admin-login-form">
+            <div class="form-group">
+                <label for="email">Admin Email</label>
+                <input type="email" id="email" class="form-control" placeholder="admin@mindmate.com" required>
+            </div>
+            
+            <div class="form-group password-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                <button type="button" class="toggle-password" onclick="togglePassword()">Show</button>
+            </div>
+
+            <p id="error-msg" class="error-msg"></p>
+
+            <div class="options">
+                <label><input type="checkbox" id="remember"> <span data-i18n="remember_me">Remember me</span></label>
+                <a href="#" style="color: var(--primary); text-decoration: none;" onclick="showForgotModal()" data-i18n="forgot_password">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="btn-submit" data-i18n="login_admin">Login to Admin</button>
+        </form>
+
+        <a href="/admin_register" class="back-link" style="margin-top: 15px; font-weight: 600;" data-i18n="admin_invite">Have an invite code? Register here</a>
+        <a href="/" class="back-link" data-i18n="back_to_portal">← Back to Portal Selection</a>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgot-password-modal">
+        <div class="modal-content" id="modal-step-1">
+            <h2 style="margin-top:0;" data-i18n="reset_password">Reset Password</h2>
+            <p style="color: var(--text-light); font-size: 0.95rem;" data-i18n="reset_desc_admin">Enter your admin email to receive a secure OTP.</p>
+            <input type="email" id="reset-email" class="form-control" placeholder="Enter your email" style="margin-bottom: 15px;">
+            <p id="reset-error" class="error-msg"></p>
+            <button onclick="sendOTP()" class="btn-submit" style="margin-bottom: 10px;" data-i18n="send_otp">Send OTP</button>
+            <button onclick="closeForgotModal()" style="width: 100%; padding: 10px; background: none; border: none; cursor: pointer; color: var(--text-light);" data-i18n="cancel">Cancel</button>
+        </div>
+
+        <div class="modal-content" id="modal-step-2" style="display:none;">
+            <h2 style="margin-top:0;" data-i18n="verify_otp">Verify OTP</h2>
+            <p style="color: var(--text-light); font-size: 0.95rem;" data-i18n="otp_desc">Check your console/email for the 6-digit OTP.</p>
+            <input type="text" id="otp-code" class="form-control" placeholder="123456" style="margin-bottom: 15px;">
+            <p id="otp-error" class="error-msg"></p>
+            <button onclick="verifyOTP()" class="btn-submit" style="margin-bottom: 10px;" data-i18n="submit_otp">Verify OTP</button>
+            <button onclick="closeForgotModal()" style="width: 100%; padding: 10px; background: none; border: none; cursor: pointer; color: var(--text-light);" data-i18n="cancel">Cancel</button>
+        </div>
+
+        <div class="modal-content" id="modal-step-3" style="display:none;">
+            <h2 style="margin-top:0;" data-i18n="new_password">New Password</h2>
+            <input type="password" id="new-password" class="form-control" placeholder="New Password" style="margin-bottom: 15px;">
+            <p id="new-pwd-error" class="error-msg"></p>
+            <button onclick="resetPassword()" class="btn-submit" style="margin-bottom: 10px;" data-i18n="save_password">Save Password</button>
+            <button onclick="closeForgotModal()" style="width: 100%; padding: 10px; background: none; border: none; cursor: pointer; color: var(--text-light);" data-i18n="cancel">Cancel</button>
+        </div>
+    </div>
+
+    <script src="/static/i18n.js"></script>
+    <script>
+        let currentResetEmail = '';
+
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const btn = document.querySelector('.toggle-password');
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = 'Hide';
+            } else {
+                input.type = 'password';
+                btn.textContent = 'Show';
+            }
+        }
+
+        function showForgotModal() {
+            document.getElementById('forgot-password-modal').style.display = 'flex';
+            document.getElementById('modal-step-1').style.display = 'block';
+            document.getElementById('modal-step-2').style.display = 'none';
+            document.getElementById('modal-step-3').style.display = 'none';
+        }
+
+        function closeForgotModal() {
+            document.getElementById('forgot-password-modal').style.display = 'none';
+        }
+
+        async function sendOTP() {
+            const email = document.getElementById('reset-email').value;
+            const err = document.getElementById('reset-error');
+            if(!email) {
+                err.innerText = "Please enter an email.";
+                err.style.display = 'block';
+                return;
+            }
+            err.style.display = 'none';
+            
+            const res = await fetch('/api/forgot_password', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ email: email, role: 'admin' })
+            });
+            const data = await res.json();
+            
+            if(data.success) {
+                currentResetEmail = email;
+                document.getElementById('modal-step-1').style.display = 'none';
+                document.getElementById('modal-step-2').style.display = 'block';
+            } else {
+                err.innerText = data.message;
+                err.style.display = 'block';
+            }
+        }
+
+        async function verifyOTP() {
+            const otp = document.getElementById('otp-code').value;
+            const err = document.getElementById('otp-error');
+            
+            const res = await fetch('/api/verify_otp', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ email: currentResetEmail, role: 'admin', otp: otp })
+            });
+            const data = await res.json();
+            
+            if(data.success) {
+                document.getElementById('modal-step-2').style.display = 'none';
+                document.getElementById('modal-step-3').style.display = 'block';
+            } else {
+                err.innerText = data.message;
+                err.style.display = 'block';
+            }
+        }
+
+        async function resetPassword() {
+            const pwd = document.getElementById('new-password').value;
+            const err = document.getElementById('new-pwd-error');
+            
+            const res = await fetch('/api/reset_password', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ email: currentResetEmail, role: 'admin', password: pwd })
+            });
+            const data = await res.json();
+            
+            if(data.success) {
+                alert("Password reset successfully. Please login.");
+                closeForgotModal();
+            } else {
+                err.innerText = data.message;
+                err.style.display = 'block';
+            }
+        }
+
+        document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const formData = new FormData();
+            formData.append("email", email);
+            formData.append("password", password);
+
+            const res = await fetch('/admin_login', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await res.json();
+            
+            if (data.success) {
+                window.location.href = '/admin_dashboard';
+            } else {
+                const errorEl = document.getElementById('error-msg');
+                errorEl.innerText = data.message;
+                errorEl.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

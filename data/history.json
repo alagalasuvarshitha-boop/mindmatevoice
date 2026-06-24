@@ -217,5 +217,880 @@
     "ai_response": "I'm listening. Please continue.",
     "stress_score": 40,
     "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-12T10:47:19.163974",
+    "user_message": "i am not feeling well today",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-12T10:58:16.473382",
+    "user_message": "bad",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-12T12:07:50.288544",
+    "user_message": "how r u",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-12T12:08:02.534097",
+    "user_message": "i kind of mood of",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-12T12:08:16.629807",
+    "user_message": "i am feeling very stressed",
+    "ai_response": "I understand you're feeling stressed. Take a deep breath. Breathe in... and out.",
+    "stress_score": 75,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-12T12:40:37.517754",
+    "user_message": "hi",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-12T12:40:59.814415",
+    "user_message": "i am feeling sad",
+    "ai_response": "I'm sorry to hear you're feeling sad. I'm here with you.",
+    "stress_score": 75,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-12T12:58:27.878087",
+    "user_message": "hi",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-12T12:59:52.640201",
+    "user_message": "i am feeling very sad and bad today",
+    "ai_response": "I'm sorry to hear you're feeling sad. I'm here with you.",
+    "stress_score": 75,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-12T13:00:16.975530",
+    "user_message": "i am having cough what should i do",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T11:27:04.754742",
+    "user_message": "hi",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T11:55:23.149230",
+    "user_message": "hi",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T11:55:35.326896",
+    "user_message": "my health is not good",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:14:25.761804",
+    "user_message": "hi",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:14:40.193549",
+    "user_message": "i am not feeling good",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:14:54.826155",
+    "user_message": "my health is not good",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:15:08.880589",
+    "user_message": "i am having fever",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:15:32.777253",
+    "user_message": "i am in very low phase of my life",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:40:19.396230",
+    "user_message": "my health is not good",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:40:36.194268",
+    "user_message": "i am feeling sick",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T12:40:47.138426",
+    "user_message": "i am having fever",
+    "ai_response": "I'm listening. Please continue.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T13:00:34.160479",
+    "user_message": "i am not feeling good",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-16T13:00:52.424637",
+    "user_message": "my health is not good",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-19T11:16:03.511611",
+    "user_message": "i am not feeling well today",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-19T13:27:27.733551",
+    "user_message": "i am feeling good",
+    "ai_response": "I'm glad to hear you're doing well!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T07:58:40.574361",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T07:58:50.950105",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:20:09.089600",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:36:35.853737",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:37:02.791275",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:39:27.467654",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:40:32.117563",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:40:50.802795",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:43:56.548257",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:44:11.734225",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:45:03.837361",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:45:22.645554",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:46:44.963979",
+    "user_message": "hii",
+    "ai_response": "नमस्कार! मी तुमचा माइंडमेट सहाय्यक आहे. तुम्ही कसे आहात?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T09:47:06.297142",
+    "user_message": "i am getting fever",
+    "ai_response": "मी तुमचे ऐकत आहे. कृपया सुरू ठेवा.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:18:02.064440",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:18:40.686824",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:18:52.556245",
+    "user_message": "i am getting fever",
+    "ai_response": "I understand you're experiencing fever. Please check your temperature and stay hydrated with fluids like water or electrolyte solutions. If your fever persists for more than 24-48 hours, worsens, or is accompanied by other concerning symptoms, please consult a healthcare professional promptly.",
+    "stress_score": 55,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T10:19:22.274023",
+    "user_message": "i am getting fever",
+    "ai_response": "I understand you're experiencing a fever. It's important to monitor your temperature, stay hydrated, and get adequate rest. However, since fever can be a sign of various conditions, I strongly recommend consulting a human doctor for a proper diagnosis and treatment, especially if symptoms persist or worsen.",
+    "stress_score": 50,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T10:20:07.375482",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:23:03.584026",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to help with any medical concerns you might have. How can I assist you today?",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:23:30.680693",
+    "user_message": "i am getting fever",
+    "ai_response": "I understand you're experiencing fever. Please check your temperature and stay hydrated with water and rest. If the fever persists for more than 2-3 days or is accompanied by other concerning symptoms like severe headache, body pain, or difficulty breathing, please consult a healthcare professional promptly.",
+    "stress_score": 60,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T10:24:04.397275",
+    "user_message": "thank you",
+    "ai_response": "You're welcome! I'm here to help if you have any medical concerns or questions. Take care of yourself!",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:25:26.429314",
+    "user_message": "how r u",
+    "ai_response": "నేను మీ మాట వింటున్నాను. దయచేసి కొనసాగించండి.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:26:03.319182",
+    "user_message": "i am getting headache",
+    "ai_response": "తలనొప్పి వస్తే, మొదట మీ శరీర ఉష్ణోగ్రతను తనిఖీ చేయండి. తగినంత నీరు తాగండి, విశ్రాంతి తీసుకోండి. లక్షణాలు తగ్గకపోతే లేదా పెరగితే, వెంటనే వైద్యుడిని సంప్రదించండి.",
+    "stress_score": 30,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T10:26:32.726900",
+    "user_message": "i am getting heart attack",
+    "ai_response": "మీ గుండె సంబంధిత లక్షణాలు కనిపిస్తే వెంటనే అత్యవసర వైద్య సహాయం అవసరం. దయచేసి వెంటనే సమీపంలోని అత్యవసర విభాగానికి వెళ్లండి లేదా అంబులెన్స్‌ను పిలవండి. స్వయంగా చికిత్స చేయడానికి ప్రయత్నించవద్దు. మీ ప్రాణాలకే ప్రమాదం ఉంది.",
+    "stress_score": 95,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-22T10:28:08.755691",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను MindMate, ఒక వృత్తిపరమైన వైద్యుడిని. మీకు ఏవైనా ఆరోగ్య సమస్యలు ఉంటే, దయచేసి వెంటనే ఒక వైద్యుడిని సంప్రదించండి.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:04:37.388109",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! మీరు ఎలా ఉన్నారు? మీకు ఏవైనా ఆరోగ్య సమస్యలు ఉంటే, దయచేసి వాటిని వివరంగా చెప్పండి.",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:04:49.106013",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! మీకు ఎలా ఉంది? నేను MindMate, ఒక AI వైద్య సహాయకుడిని. ఏదైనా నిర్దిష్ట ఆరోగ్య ప్రశ్నలు ఉంటే, దయచేసి అడగండి.\n\n{\n  \"response\": \"నమస్కారం! మీకు ఎలా ఉంది? నేను MindMate, ఒక AI వైద్య సహాయకుడిని. ఏదైనా నిర్దిష్ట ఆరోగ్య ప్రశ్నలు ఉంటే, దయచేసి అడగండి.\",\n  \"stress_score\": 25\n}",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:05:12.964200",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:05:28.187400",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ ఆరోగ్య విషయాలను చర్చించడానికి సిద్ధంగా ఉన్నాను. మీకు ఏవైనా ఆరోగ్య సమస్యలు ఉంటే చెప్పండి, నేను మీకు సహాయం చేస్తాను.",
+    "stress_score": 10,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:06:02.430288",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:06:22.711348",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:26:07.408244",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:26:55.556591",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:27:07.864880",
+    "user_message": "hii",
+    "ai_response": "ನಮಸ್ಕಾರ! ನಿಮ್ಮ ಆರೋಗ್ಯದ ಬಗ್ಗೆ ಕಾಳಜಿ ವಹಿಸುತ್ತಿದ್ದೇನೆ. ಯಾವುದೇ ಆರೋಗ್ಯ ಸಮಸ್ಯೆ ಇದ್ದರೆ ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸುವುದು ಉತ್ತಮ.",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:52:41.021456",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to help. How can I support you today?",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T11:53:03.223011",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to help with any medical concerns you may have. How can I assist you today?",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:00:52.481607",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ ఆరోగ్య విషయాలను చర్చించడానికి ఇక్కడ ఉన్నాను. మీకు ఏవైనా ఆరోగ్య సమస్యలు ఉంటే, దయచేసి నాతో మాట్లాడండి. మీకు నయం కావాలని కోరుకుంటున్నాను.",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:16:34.833270",
+    "user_message": "hii",
+    "ai_response": "નમસ્તે! આજે હું તમને કેવી રીતે મદદ કરી શકું? જો તમને કોઈ સ્વાસ્થ્ય સંબંધી ચિંતા હોય, તો કૃપા કરીને ડૉક્ટરની સલાહ લો.",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:17:02.836819",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:17:32.423782",
+    "user_message": "hii",
+    "ai_response": "નમસ્તે! હું MindMate તરીકે તમારી સેવા કરવા માટે અહીં છું. જો તમને કોઈ તબીબી મદદની જરૂર હોય અથવા કોઈ લક્ષણો જણાય, તો કૃપા કરીને માનવ ડૉક્ટરની સલાહ લો.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:17:58.908723",
+    "user_message": "hii",
+    "ai_response": "નમસ્તે! હું તમારા માટે અહીં છું. જો તમે કોઈ ચોક્કસ તબીબી પ્રશ્ન હોય અથવા કોઈ લક્ષણો જણાવી શકો, તો હું મદદ કરી શકું છું. અન્યથા, હું તમને તમારા સ્વાસ્થ્યની ચિંતા કરવા માટે સલાહ આપું છું.",
+    "stress_score": 10,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:18:48.499417",
+    "user_message": "hii",
+    "ai_response": "નમસ્તે! હું MindMate, એક AI તબીબી ડૉક્ટર છું. આજે તમને કેવું લાગે છે? તમારી તબિયત કેવું છે?",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:18:59.545154",
+    "user_message": "hii",
+    "ai_response": "નમસ્તે! આપને કેવી રીતે મદદ કરી શકીએ? આજે તમારો દિવસ કેવો રહે છે?",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:19:12.789840",
+    "user_message": "hii",
+    "ai_response": "નમસ્તે! હું MindMate છું. જો તમને કોઈ તબીબી મદદની જરૂર હોય તો હું અહીં છું. તમારા સ્વાસ્થ્ય વિશે કોઈ પણ પ્રશ્ન હોય તો જણાવો.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:47:34.016631",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to provide compassionate medical support. How can I assist you with your health concerns today?",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:48:01.840481",
+    "user_message": "what is your name",
+    "ai_response": "I am MindMate, a professional AI medical doctor designed to provide support and guidance. My purpose is to offer initial medical information and advice, but I am not a substitute for a human healthcare professional.",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:48:48.411077",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to help. How can I support you today?",
+    "stress_score": 0,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:49:21.730067",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to help with any medical concerns you might have. How can I assist you today?",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T12:50:08.435000",
+    "user_message": "i am getting fever",
+    "ai_response": "I understand you're experiencing fever. Please check your temperature and stay hydrated with plenty of water. If the fever persists for more than 24-48 hours, or if you develop additional symptoms like severe headache, difficulty breathing, or persistent pain, please consult a healthcare professional promptly.",
+    "stress_score": 65,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T12:50:44.621357",
+    "user_message": "i am getting fever",
+    "ai_response": "I recommend checking your temperature and staying hydrated with plenty of water. If your fever persists or worsens, please consult a healthcare professional for proper evaluation and treatment.",
+    "stress_score": 45,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T12:51:10.271586",
+    "user_message": "i am getting fever",
+    "ai_response": "I understand you're experiencing fever. Please check your temperature and consider taking it every few hours. Rest, stay hydrated with water or electrolyte drinks, and you can take over-the-counter fever reducers like acetaminophen or ibuprofen if appropriate. If your fever persists for more than a few days, worsens, or is accompanied by other concerning symptoms, please consult a human doctor promptly.",
+    "stress_score": 45,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T12:51:57.887496",
+    "user_message": "i have typhoid",
+    "ai_response": "I understand you've been diagnosed with typhoid. Please monitor your temperature, hydration levels, and any symptoms closely. It's crucial to follow your doctor's treatment plan, complete any prescribed antibiotics, and rest adequately. If you experience worsening symptoms, high fever, or any complications, seek immediate medical attention.",
+    "stress_score": 70,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T13:12:13.212945",
+    "user_message": "hii",
+    "ai_response": "Namaste! I am here to help. How are you feeling today? Please let me know if you have any specific concerns or symptoms you'd like to discuss.",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:12:52.488422",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to help. How can I support you today?",
+    "stress_score": 10,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:13:12.694289",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:13:32.471537",
+    "user_message": "hii",
+    "ai_response": "नमस्ते! मैं आपका माइंडमेट सहायक हूँ। आप कैसे हैं?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:14:08.462111",
+    "user_message": "i am feeling tired",
+    "ai_response": "थकान महसूस करना सामान्य है। पर्याप्त नींद लेने, संतुलित आहार और नियमित व्यायाम से इस समस्या का समाधान हो सकता है। यदि थकान बनी रहती है या अन्य लक्षण दिखाई देते हैं, तो कृपया डॉक्टर से परामर्श करें।",
+    "stress_score": 45,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T13:14:38.914119",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:14:56.432837",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:15:29.081415",
+    "user_message": "how r u",
+    "ai_response": "I am functioning well, thank you for asking. I am here to support you with any health-related questions or concerns. How may I help you today?",
+    "stress_score": 5,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:15:47.600350",
+    "user_message": "how r u",
+    "ai_response": "I'm doing well, thank you for asking. How can I assist you today?",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:16:36.517231",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to provide support. If you have any health concerns or feel you need medical advice, please feel free to share. I can offer general information and suggest next steps if needed.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:17:24.880656",
+    "user_message": "give me first aid precautions for choking something in mouth",
+    "ai_response": "If you suspect someone is choking and cannot speak, cry, or breathe, immediately perform the Heimlich maneuver or back blows. If the object is not dislodged, call emergency services immediately. Always stay with the person and continue until the object is expelled or help arrives.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:17:55.891690",
+    "user_message": "thank you",
+    "ai_response": "You're welcome! I'm here to help. Remember, if you ever need to discuss health concerns, it's always best to consult with a qualified human doctor for personalized advice.",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:18:22.499266",
+    "user_message": "hii",
+    "ai_response": "नमस्कार! मी माइंडमॅट आहे. आज मी तुम्हाला कशी मदत करू शकते? कृपया तुमचे आरोग्य किंवा लक्षणांबाबत अधिक माहिती द्या.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:18:53.530793",
+    "user_message": "hii",
+    "ai_response": "नमस्कार! मी तुमचा माइंडमेट सहाय्यक आहे. तुम्ही कसे आहात?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:20:24.512735",
+    "user_message": "hii",
+    "ai_response": "Namaste. Hu tamara swasthya sambandhit koi pan prashno na uttar aapva mate ahi chhu. Krupine janavo ke tamne shu joie chhe.",
+    "stress_score": 5,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:20:46.710839",
+    "user_message": "hii",
+    "ai_response": "નમસ્તે! હું માઇન્ડમેટ તરીકે મદદ કરવા માટે અહીં છું. જો તમને કોઈ તબીબી પ્રશ્ન હોય, તો હું તમને માર્ગદર્શન આપી શકું છું. કૃપા કરીને તમારી કોઈપણ ચિંતાઓ જણાવો.",
+    "stress_score": 10,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:54:05.768938",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:54:31.658620",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:54:46.428259",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to provide you with medical information and support. How can I assist you today?",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:55:13.295541",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to help. It's important to monitor your health, so if you're experiencing any specific symptoms, please let me know so I can provide appropriate guidance.",
+    "stress_score": 30,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T13:55:37.797426",
+    "user_message": "i am getting fever",
+    "ai_response": "I recommend checking your temperature to confirm the fever. Basic initial care includes resting, staying hydrated, and taking over-the-counter fever reducers if needed. Please consult a doctor if your fever persists or is accompanied by other concerning symptoms.",
+    "stress_score": 45,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T14:07:35.790714",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! మీరు ఎలా ఉన్నారు? మీకు ఏదైనా నిర్దిష్ట ఆరోగ్య సమస్య ఉంటే, నేను మీకు సహాయం చేయగలను. మీరు ఆందోళన చెందుతుంటే, ప్రశాంతంగా ఉండండి.\n\n{\n  \"response\": \"నమస్కారం! మీరు ఎలా ఉన్నారు? మీకు ఏదైనా నిర్దిష్ట ఆరోగ్య సమస్య ఉంటే, నేను మీకు సహాయం చేయగలను. మీరు ఆందోళన చెందుతుంటే, ప్రశాంతంగా ఉండండి.\",\n  \"stress_score\": 15\n}",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:08:00.038367",
+    "user_message": "how r u",
+    "ai_response": "నమస్కారం! నేను బాగున్నాను. మీకు ఏదైనా వైద్య సంబంధిత సందేహం ఉందా? నేను మీకు సహాయం చేయడానికి సిద్ధంగా ఉన్నాను.",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:08:32.589896",
+    "user_message": "how r u",
+    "ai_response": "నేను మీ మాట వింటున్నాను. దయచేసి కొనసాగించండి.",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:11:01.996986",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ ఆరోగ్యానికి సహాయం చేయడానికి ఇక్కడ ఉన్నాను. ఏదైనా సమస్య ఉందా లేదా ఏదైనా సమాచారం కావాలా? నేను మీకు సహాయం చేయడానికి సిద్ధంగా ఉన్నాను.",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:11:22.628225",
+    "user_message": "hii",
+    "ai_response": "Hi there! I'm here to provide support and information. How can I help you today?",
+    "stress_score": 10,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:12:30.022179",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:12:45.847700",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ ఆరోగ్యానికి సంబంధించిన సమాచారం అందించడానికి ఇక్కడ ఉన్నాను. మీరు ఎలా ఉన్నారు? మీరు ఏదైనా నిర్దిష్ట ఆరోగ్య సమస్య గురించి చర్చించాలనుకుంటే, దయచేసి చెప్పండి.",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:13:01.004143",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ ఆరోగ్య విషయాలను చర్చించడానికి ఇక్కడ ఉన్నాను. మీకు ఏవైనా ఆరోగ్య సమస్యలు ఉంటే, దయచేసి వైద్యుడిని సంప్రదించండి.",
+    "stress_score": 20,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:13:25.887193",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:13:32.758387",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:20:24.653248",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:20:37.165621",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to provide medical information and support. How can I assist you today?",
+    "stress_score": 10,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:20:52.834355",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to offer support and information. Please let me know what's on your mind or if you'd like to discuss any health concerns.",
+    "stress_score": 0,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T14:21:31.611832",
+    "user_message": "hii",
+    "ai_response": "Hello! I'm here to support you with any health concerns or questions you might have. Please feel free to share what's on your mind, and I'll do my best to provide helpful guidance.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T16:50:47.192689",
+    "user_message": "hi",
+    "ai_response": "Hello! I'm here to support you. Please feel free to share what's on your mind or ask me any questions.",
+    "stress_score": 5,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T16:51:19.721404",
+    "user_message": "i am feeling very stressed",
+    "ai_response": "I understand you're feeling very stressed. I recommend taking deep breaths, practicing mindfulness, and ensuring you're getting adequate rest and nutrition. If your stress continues to intensify or you experience physical symptoms, please consult a healthcare professional promptly.",
+    "stress_score": 80,
+    "risk": "red"
+  },
+  {
+    "timestamp": "2026-06-22T17:47:33.565726",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T17:47:43.769705",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! మీరు ఎలా ఉన్నారో తెలుసుకోవడానికి నేను ఇక్కడ ఉన్నాను. మీకు ఏదైనా సహాయం కావాలంటే నన్ను అడగండి.\n\n{\n  \"response\": \"నమస్కారం! మీరు ఎలా ఉన్నారో తెలుసుకోవడానికి నేను ఇక్కడ ఉన్నాను. మీకు ఏదైనా సహాయం కావాలంటే నన్ను అడగండి.\",\n  \"stress_score\": 20\n}",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T17:48:02.312521",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T17:48:24.191540",
+    "user_message": "hii",
+    "ai_response": "నమస్కారం! నేను మీ మైండ్మేట్ సహాయకుడిని. మీరు ఎలా ఉన్నారు?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T17:48:27.719477",
+    "user_message": "hii",
+    "ai_response": "Hello! It's wonderful to connect with you. I'm here to support you through whatever you're experiencing, and I'm happy to listen whenever you need to talk.",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T17:51:02.275541",
+    "user_message": "hii",
+    "ai_response": "Namaste! I'm your MindMate assistant. How are you?",
+    "stress_score": 40,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T17:51:18.005954",
+    "user_message": "hii",
+    "ai_response": "नमस्ते! आपका स्वागत है। मैं आपकी हर ज़रूरत में साथ देने के लिए यहाँ हूँ। आप कैसा महसूस कर रहे हैं आज?",
+    "stress_score": 25,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T18:44:31.901934",
+    "user_message": "hello",
+    "ai_response": "Hello! It's great to connect with you. I'm here to support you whenever you need to talk or just want to check in.",
+    "stress_score": 15,
+    "risk": "green"
+  },
+  {
+    "timestamp": "2026-06-22T18:45:23.720633",
+    "user_message": "i am feeling stressed",
+    "ai_response": "I'm here to support you through this difficult time. Stress is a normal response, and we can work through it together at your own pace. Remember that taking small steps to self-care can make a big difference.",
+    "stress_score": 70,
+    "risk": "orange"
+  },
+  {
+    "timestamp": "2026-06-22T18:46:23.945481",
+    "user_message": "i am geeting typhoid give me some precations",
+    "ai_response": "I'm here to support you as you learn about typhoid precautions. It's completely normal to feel concerned about health information, and taking proactive steps is a great way to feel more in control. The most important precautions include boiling water, avoiding raw foods, and practicing good hand hygiene.",
+    "stress_score": 45,
+    "risk": "orange"
   }
 ]

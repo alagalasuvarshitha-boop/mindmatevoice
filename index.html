@@ -617,23 +617,27 @@
   <div class="body-cont">
     <div class="vid-input-cont">
       <div class="main-cont">
-        <div class="vid" id="vid-res">
-  <img src="/static/ai_avatar.png" alt="AI Companion" id="ai-avatar-img" 
-       style="width:100%; height:100%; object-fit:cover; border-radius: var(--radius-md);">
-  
-  <!-- Voice Animation Overlay -->
-  <div class="sound-waves" id="soundWaves">
-    <div class="sound-wave-bar"></div>
-    <div class="sound-wave-bar"></div>
-    <div class="sound-wave-bar"></div>
-    <div class="sound-wave-bar"></div>
-    <div class="sound-wave-bar"></div>
-    <div class="sound-wave-bar"></div>
-    <div class="sound-wave-bar"></div>
-  </div>
-  
-  <div class="speaking-label" id="speakingLabel">Speaking...</div>
-</div>
+        <div class="vid" id="vid-res" style="position: relative; overflow: hidden;">
+          <div id="avatar-wrapper" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+            <img src="/static/doctor_female.png" alt="AI Companion" id="ai-avatar-img" 
+                 style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-md); display: block;">
+            <img src="/static/doctor_female_mouth.png" alt="Mouth" id="avatar-mouth"
+                 style="position: absolute; left: 45.31%; top: 31.35%; width: 9.38%; height: 4.69%; transform-origin: center top; transition: transform 0.05s ease; z-index: 2; pointer-events: none;">
+          </div>
+          
+          <!-- Voice Animation Overlay -->
+          <div class="sound-waves" id="soundWaves">
+            <div class="sound-wave-bar"></div>
+            <div class="sound-wave-bar"></div>
+            <div class="sound-wave-bar"></div>
+            <div class="sound-wave-bar"></div>
+            <div class="sound-wave-bar"></div>
+            <div class="sound-wave-bar"></div>
+            <div class="sound-wave-bar"></div>
+          </div>
+          
+          <div class="speaking-label" id="speakingLabel">Speaking...</div>
+        </div>
         <h2 id="feelingQuestion">How are you feeling today?</h2>
         <form id="chat-form">
           <textarea name="message" id="message" placeholder="Enter your thoughts.." required></textarea>

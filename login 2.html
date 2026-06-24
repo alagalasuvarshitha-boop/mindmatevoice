@@ -511,21 +511,39 @@
 
 <body>
 
+  <!-- Language Selector -->
+  <div style="width: 100%; display: flex; justify-content: flex-end; margin-bottom: 10px;">
+    <div style="display: flex; align-items: center; gap: 8px; background: var(--clr-surface); padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); box-shadow: var(--shadow-sm);">
+      <span style="font-size: 16px;">🌐</span>
+      <select id="login-language-selector" onchange="setLanguage(this.value)" style="border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: var(--clr-text); cursor: pointer; outline: none;">
+        <option value="en" selected>English</option>
+        <option value="hi">Hindi (हिन्दी)</option>
+        <option value="te">Telugu (తెలుగు)</option>
+        <option value="bn">Bengali (বাংলা)</option>
+        <option value="mr">Marathi (मराठी)</option>
+        <option value="ta">Tamil (தமிழ்)</option>
+        <option value="ur">Urdu (اردو)</option>
+        <option value="gu">Gujarati (ગુજરાતી)</option>
+        <option value="kn">Kannada (ಕನ್ನಡ)</option>
+        <option value="ml">Malayalam (മലയാളം)</option>
+        <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+        <option value="or">Odia (ଓଡ଼ିଆ)</option>
+        <option value="bho">Bhojpuri (भोजपुरी)</option>
+      </select>
+    </div>
+  </div>
+
   <div class="header-row">
     <img src="/static/iiitk1.png" alt="IIITDM Kurnool" class="header-logo-img">
-    <h2 class="developed-by-head">
+    <h2 class="developed-by-head" data-i18n="instituteName">
       Indian Institute of Information Technology Design and Manufacturing, Kurnool
       <br>
-      AI &amp; AR Based Companion
+      <span data-i18n="aiCompanion">AI &amp; AR Based Companion</span>
     </h2>
     <img src="/static/trigun logo.png" alt="Trigun Logo" class="header-logo-img">
   </div>
 
   <div class="projectDet">
-
-
-
-
 
     <h3>About MindMate</h3>
 
@@ -545,53 +563,52 @@
 
 4. To integrate camera-based emotion recognition with AI language understanding for accurate mental state prediction. -->
 
-    <div>
+    <div style="margin-top: 15px;">
+      <h3 data-i18n="scanFaceBtn">Scan Face</h3>
       <div class="name-stress-cont">
         <video id="login-camera" width="250" autoplay style="display:block;margin:auto;border-radius:8px;"></video>
         <canvas id="login-canvas" style="display:none;"></canvas>
         <p id="login-face-result" style="text-align:center;font-weight:bold;"></p>
         <p id="login-stress-result" style="font-weight:bold;"></p>
       </div>
-      <button onclick="detectLoginFace()">Scan Face</button>
+      <button onclick="detectLoginFace()" data-i18n="scanFaceBtn">Scan Face</button>
     </div>
 
   </div>
 
   <div class="container">
 
-
-
     <div class="forms" id="forms">
       <!-- Signup Form -->
       <div class="form" id="signup-form">
         <div class="logo">MindMate</div>
-        <h2>Create Account</h2>
-        <input id="signup-name" type="text" placeholder="Full Name" required>
-        <input id="signup-email" type="email" placeholder="Email" required>
-        <input id="signup-password" type="password" placeholder="Password" required>
-        <input id="signup-age" type="number" placeholder="Age" required>
-        <input id="signup-alternate-phone" type="text" placeholder="Alternate Phone Number" required>
-        <input id="signup-location" type="text" placeholder="Location" required>
+        <h2 data-i18n="createAccount">Create Account</h2>
+        <input id="signup-name" type="text" placeholder="Full Name" data-i18n="fullName" required>
+        <input id="signup-email" type="email" placeholder="Email" data-i18n="emailAddr" required>
+        <input id="signup-password" type="password" placeholder="Password" data-i18n="password" required>
+        <input id="signup-age" type="number" placeholder="Age" data-i18n="ageLabel" required>
+        <input id="signup-alternate-phone" type="text" placeholder="Alternate Phone Number" data-i18n="altPhone" required>
+        <input id="signup-location" type="text" placeholder="Location" data-i18n="locationLabel" required>
 
         <!-- for face -->
         <video id="signup-camera" width="250" autoplay style="display:block;margin:auto;border-radius:8px;"></video>
         <canvas id="signup-canvas" style="display:none;"></canvas>
-        <button type="button" onclick="captureSignupFace()">Capture Face</button>
+        <button type="button" onclick="captureSignupFace()" data-i18n="captureFaceBtn">Capture Face</button>
         <p id="signup-face-status" style="text-align:center;font-size:13px;"></p>
 
-        <button onclick="register()">Sign Up</button>
-        <button class="toggle-btn" onclick="showLogin()">Already have an account? Login</button>
+        <button onclick="register()" data-i18n="signUpBtn">Sign Up</button>
+        <button class="toggle-btn" onclick="showLogin()" data-i18n="alreadyHaveAccount">Already have an account? Login</button>
 
       </div>
 
       <!-- Login Form -->
       <div class="form" id="login-form">
         <div class="logo">MindMate</div>
-        <h2>Welcome Back</h2>
-        <input id="login-email" type="email" placeholder="Email" required>
-        <input id="login-password" type="password" placeholder="Password" required>
-        <button onclick="login()">Login</button>
-        <button class="toggle-btn" onclick="showSignup()">Don't have an account? Sign Up</button>
+        <h2 data-i18n="welcomeBack">Welcome Back</h2>
+        <input id="login-email" type="email" placeholder="Email" data-i18n="emailAddr" required>
+        <input id="login-password" type="password" placeholder="Password" data-i18n="password" required>
+        <button onclick="login()" data-i18n="loginBtn">Login</button>
+        <button class="toggle-btn" onclick="showSignup()" data-i18n="dontHaveAccount">Don't have an account? Sign Up</button>
 
       </div>
     </div>
@@ -625,30 +642,6 @@
       startCamera("login-camera");
     }
 
-
-    //     async function register() {
-    //   const name = document.getElementById("signup-name").value;
-    //   const email = document.getElementById("signup-email").value;
-    //   const password = document.getElementById("signup-password").value;
-    //   const age = document.getElementById("signup-age").value;
-    //   const alternatePhone = document.getElementById("signup-alternate-phone").value;
-    //   const location = document.getElementById("signup-location").value;
-
-    //   if (!name || !email || !password || !age || !alternatePhone || !location)
-    //     return alert("Please fill all fields");
-
-    //   const res = await fetch("/register", {
-    //     method: "POST",
-    //     body: new URLSearchParams({ name, email, password, age, alternatePhone, location })
-    //   });
-    //   const data = await res.json();
-    //   alert(data.message);
-    //   if (data.success) showLogin();
-    // }
-
-
-    // register function with face
-
     async function register() {
       const name = document.getElementById("signup-name").value;
       const email = document.getElementById("signup-email").value;
@@ -675,17 +668,17 @@
       if (!data.success) return;
 
       // 2️⃣ Register face
-      await fetch("/register_face_test", {
+      const faceRes = await fetch("/register_face_test", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: name,
-          image: signupFaceImage
+            name: name,
+            image: signupFaceImage
         })
-      }).then().then(res => {
-        if (res.success == True) { alert(res.message); }
       });
 
+      const faceData = await faceRes.json();
+      alert(faceData.message);
 
       showLogin();
     }
@@ -712,36 +705,26 @@
       }
     }
 
-
-
-    // for face
-
-
     async function startCamera(videoId) {
-  try {
-    const video = document.getElementById(videoId);
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    video.srcObject = stream;
+      try {
+        const video = document.getElementById(videoId);
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
 
-    video.onloadedmetadata = () => {
-      video.play();
-      console.log("📸 Camera ready");
+        video.onloadedmetadata = () => {
+          video.play();
+          console.log("📸 Camera ready");
 
-      // 🔥 Start detection ONLY after camera ready
-      if (videoId === "login-camera" && !loginDetectionInterval) {
-        loginDetectionInterval = setInterval(detectLoginFace, 4000);
+          // 🔥 Start detection ONLY after camera ready
+          if (videoId === "login-camera" && !loginDetectionInterval) {
+            loginDetectionInterval = setInterval(detectLoginFace, 4000);
+          }
+        };
+
+      } catch (err) {
+        console.error("Camera error:", err);
       }
-    };
-
-  } catch (err) {
-    console.error("Camera error:", err);
-  }
-}
-    // startCamera("signup-camera");
-    // startCamera("login-camera");
-
-
-    // let signupFaceImage = null;
+    }
 
     function captureSignupFace() {
       const video = document.getElementById("signup-camera");
@@ -796,7 +779,7 @@ const timeout = setTimeout(() => controller.abort(), 7000);
 
 let faceRes;
 try {
-  faceRes = await fetch("/recognize_face", {
+  faceRes = await fetch("/face_login",  {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ image }),
@@ -818,9 +801,12 @@ clearTimeout(timeout); // ✅ stop timer if request completed
 
         const faceData = await faceRes.json();
 
-        if (faceData.recognized) {
+        if (faceData.success) {
           document.getElementById("login-face-result").innerText =
-            "Detected: " + faceData.name + " 👤";
+            "Welcome " + faceData.name + " 👤";
+          localStorage.setItem("user", JSON.stringify(faceData));
+
+          window.location.href = "/home";  
         } else {
           document.getElementById("login-face-result").innerText =
             "Face not recognized";
@@ -859,6 +845,7 @@ clearTimeout(timeout); // ✅ stop timer if request completed
 
   </script>
 
+  <script src="/static/i18n.js"></script>
 </body>
 
 </html>
